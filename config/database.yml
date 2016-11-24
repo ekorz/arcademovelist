@@ -23,6 +23,6 @@ test:
 
 production:
   <<: *default
-  database: movelist4
+  database: arcademovelist
   username: super_user
   password: daedalus
