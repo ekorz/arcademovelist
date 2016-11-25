@@ -1,0 +1,1 @@
+<p><%= link_to character.name, game_character_path(@game, character.id)  %> <%= character.description %> <%= link_to "Edit", edit_game_character_path(@game, character.id) %> <%= link_to "Delete", game_character_path(@game, character.id), method: :delete, data: {confirm: "Sure?" } %></p>

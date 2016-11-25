@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @character.name %>
+  <%= @character.description %>
+</p>
+
+
+<div id="movess_wrapper">
+	<%= render @character.moves %>
+	<div id="form">
+		<%= render "moves/form" %>
+	</div>
+</div>
+
+
+<%= link_to 'Back', game_path(@game) %>

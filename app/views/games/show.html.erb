@@ -15,5 +15,13 @@
   <%= @game.year %>
 </p>
 
+<div id="characters_wrapper">
+	<%= render @game.characters %>
+	<div id="form">
+		<%= render "characters/form" %>
+	</div>
+</div>
+
+
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
