@@ -1,5 +1,6 @@
-<%= form_for([@game, @game.characters.build]) do |f| %>
-	<%= f.text_field :name, placeholder: "Name" %>
-	<%= f.text_field :description, placeholder: "Description" %>
-	<%= f.submit %>
+<%= simple_form_for @character do |f| %>
+  <%= f.association :game %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
 <% end %>

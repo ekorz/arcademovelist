@@ -21,8 +21,8 @@ class MovesController < ApplicationController
   # POST /moves
   # POST /moves.json
   def create
-    @move = @character.moves.create(move_params)
-    redirect_to @game
+    @move = Move.create(move_params)
+    redirect_to @move.character
   end
 
   # PATCH/PUT /moves/1
@@ -62,7 +62,7 @@ class MovesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def move_params
-      params.require(:move).permit(:name, :description)
+      params.require(:move).permit(:character_id, :name, :description)
     end
 end
 

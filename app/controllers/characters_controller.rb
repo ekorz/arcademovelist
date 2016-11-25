@@ -1,5 +1,4 @@
 class CharactersController < ApplicationController
-  before_action :set_game
   before_action :set_character, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -8,8 +7,13 @@ class CharactersController < ApplicationController
 
   # GET /games/1
   # GET /games/1.json
-  def show
 
+  def new
+    @character = Character.new(character_params)
+    
+  end
+
+  def show
   end
 
   # GET /games/1/edit
@@ -18,9 +22,9 @@ class CharactersController < ApplicationController
 
   # POST /games
   # POST /games.json
-  def create
-    @character = @game.characters.create(character_params)
-    redirect_to @game
+  def create 
+   @character = Character.create(character_params)
+   redirect_to @character.game
   end
 
   # PATCH/PUT /games/1
@@ -28,7 +32,7 @@ class CharactersController < ApplicationController
   def update
     respond_to do |format|
       if @character.update(character_params)
-        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
+        format.html { redirect_to @character.game, notice: 'Character was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -38,28 +42,24 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    @character = @game.characters.find(params[:id])
+    
     if @character.destroy
       flash[:success] = "Character was deleted."
     else
       flash[:error] = "Character could not be deleted."
     end
-    redirect_to @game
+    redirect_to @character.game
   end
 
   private
 
-    def set_game
-      @game = Game.find(params[:game_id])
-    end
-
     def set_character
-      @character = @game.characters.find(params[:id])
+      @character = Character.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:name, :description)
+      params.require(:character).permit(:game_id, :name, :description)
     end
 
 end

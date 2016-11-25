@@ -7,6 +7,8 @@ gem 'rails', '4.0.13'
 
 gem 'rails_12factor'
 
+gem 'simple_form'
+
 # Use postgres as the database for Active Record
 gem 'pg'
 
