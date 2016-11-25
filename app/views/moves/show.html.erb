@@ -12,10 +12,12 @@
 
 <p>
   <strong>Game:</strong>
-  <%= @move.game %>
+  <%= @move.character.game.name %>
 </p>
 
 <p>
   <strong>Character:</strong>
-  <%= @move.character %>
+  <%= @move.character.name %>
 </p>
+
+<%= link_to 'Back', @move.character %>

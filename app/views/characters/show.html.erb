@@ -6,13 +6,10 @@
   <%= @character.description %>
 </p>
 
-
-<div id="movess_wrapper">
+<div id="moves_wrapper">
 	<%= render @character.moves %>
-	<div id="form">
-		<%= render "moves/form" %>
-	</div>
 </div>
 
+<%= link_to 'New Move', new_move_path(move: {character_id: @character.id}) %>
 
-<%= link_to 'Back', game_path(@game) %>
+<%= link_to 'Back', @character.game %>

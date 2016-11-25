@@ -1,34 +1,26 @@
 class CharactersController < ApplicationController
+
   before_action :set_character, only: [:show, :edit, :update, :destroy]
 
   def index
     @characters = Character.all
   end
 
-  # GET /games/1
-  # GET /games/1.json
-
   def new
     @character = Character.new(character_params)
-    
   end
 
   def show
   end
 
-  # GET /games/1/edit
   def edit
   end
 
-  # POST /games
-  # POST /games.json
   def create 
    @character = Character.create(character_params)
    redirect_to @character.game
   end
 
-  # PATCH/PUT /games/1
-  # PATCH/PUT /games/1.json
   def update
     respond_to do |format|
       if @character.update(character_params)

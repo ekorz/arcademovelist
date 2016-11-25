@@ -1,2 +1,2 @@
-<p><%= character.name %> <%= character.description %></p>
+<p><%= link_to character.name, character_path(character.id) %> <%= character.description %></p>
 <p><%= link_to "Edit", edit_character_path(character.id) %> <%= link_to "Delete", character_path(character.id), method: :delete, data: {confirm: "Sure?" } %> </p>
