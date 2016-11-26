@@ -9,6 +9,6 @@
 	<%= render @character.moves %>
 </div>
 
+<br>
 <%= link_to 'New Move', new_move_path(move: {character_id: @character.id}) %>
-
 <%= link_to 'Back', @character.game %>
