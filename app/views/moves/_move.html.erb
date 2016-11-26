@@ -1,8 +1,8 @@
-<table cellpadding="10" width="100%">
+<table cellpadding="0" width="100%">
 <tbody>
 <tr>
-<td valign="center" width="15%"><strong><%= link_to move.name, move_path(move.id) %></strong><br><%= link_to "Edit", edit_move_path(move.id) %> <%= link_to "Delete", move_path(move.id), method: :delete, data: {confirm: "Sure?" } %></td>
-<td valign="center"><h1><%= move.description %></h1></td>
+<td valign="center" align="center" width="15%"><strong><%= link_to move.name, move_path(move.id) %></strong><br><%= link_to "Edit", edit_move_path(move.id) %> <%= link_to "Delete", move_path(move.id), method: :delete, data: {confirm: "Sure?" } %></td>
+<td valign="center" align="left"><h1><%= move.description %></h1></td>
 </tr>
 </tbody>
 </table>

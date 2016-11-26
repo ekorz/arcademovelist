@@ -6,6 +6,16 @@ body {
   line-height: 18px;
 }
 
+h1 { 
+    display: block;
+    font-size: 3em;
+    margin-top: 0.45em;
+    margin-bottom: 0.45em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
