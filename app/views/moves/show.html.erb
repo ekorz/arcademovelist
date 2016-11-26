@@ -1,23 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @move.name %>
+  <h1><%= @move.name %></h1>
+  <strong><%= @move.description %></strong>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @move.description %>
+  <%= @move.character.game.name %> <%= @move.character.name %>
 </p>
 
-<p>
-  <strong>Game:</strong>
-  <%= @move.character.game.name %>
-</p>
-
-<p>
-  <strong>Character:</strong>
-  <%= @move.character.name %>
-</p>
 
 <%= link_to 'Back', @move.character %>
