@@ -18,13 +18,13 @@ class CharactersController < ApplicationController
 
   def create 
    @character = Character.create(character_params)
-   redirect_to @character.game
+   redirect_to @character.tab.tabable
   end
 
   def update
     respond_to do |format|
       if @character.update(character_params)
-        format.html { redirect_to @character.game, notice: 'Character was successfully updated.' }
+        format.html { redirect_to @character.tab.tabable, notice: 'Character was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -40,7 +40,7 @@ class CharactersController < ApplicationController
     else
       flash[:error] = "Character could not be deleted."
     end
-    redirect_to @character.game
+    redirect_to @character.tab.tabable
   end
 
   private
@@ -51,7 +51,7 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:game_id, :name, :description)
+      params.require(:character).permit(:tab_id, :name, :description)
     end
 
 end

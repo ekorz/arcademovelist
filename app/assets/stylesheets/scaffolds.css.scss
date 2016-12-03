@@ -29,16 +29,17 @@ pre {
 }
 
 a {
-  color: #fff;
+  
   text-decoration: none;
   &:visited {
     color: #fff;
   }
   &:hover {
     color: #000;
-    background-color: #fff;
+    background-color: #000;
   }
 }
+
 
 div {
   &.field, &.actions {

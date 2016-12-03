@@ -1,6 +1,6 @@
-<%= simple_form_for @game do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :year %>
-  <%= f.button :submit %>
+<%= form_for @game do |f| %>
+  <%= f.text_field :name, placeholder: 'Name' %><br>
+  <%= f.text_field :description, placeholder: 'Description' %><br>
+  <%= f.text_field :year, placeholder: 'Year' %><br>
+  <%= f.submit "Submit" %>
 <% end %>

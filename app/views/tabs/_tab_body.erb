@@ -1,0 +1,21 @@
+<%
+
+singular = tab.tab_type.singularize.downcase
+plural = tab.tab_type.pluralize.downcase 
+relations = Tab.reflect_on_all_associations(:has_many).collect{|r| r.name.to_s}
+
+%>
+
+<div role="tabpanel" class="tab-pane" id="tab-<%= tab.id %>">
+
+	<div>
+	<% if relations.include?(plural) %>
+		<% tab.send(plural).each do |object| %>
+  			<%=	render partial: "#{plural}/#{singular}", locals: {object: object} %>
+  		<% end %>
+  	<% end %>
+    </div>
+
+<a href='/<%= plural %>/new?<%= singular %>%5Btab_id%5D=<%= tab.id %>'>New <%= tab.tab_type.singularize %></a>
+
+</div>

@@ -1,17 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h3><%= @game.name %> <%= @game.description %> <%= @game.year %></h3>
+  <ul class="nav nav-tabs" role="tablist">
 
-<p>
-  <h1><%= @game.name %></h1>
-  <strong><%= @game.description %></strong>
-  <%= @game.year %>
-</p>
-
-<div id="characters_wrapper">
-  <%= render @game.characters %>
+  	<% @game.tabs.each do |tab| %>
+  		<%=	render partial: 'tabs/tab', locals: {tab: tab} %>
+  	<% end %>
+    <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @game.id, tabable_type: @game.class.name}) %></li>
+  </ul>
+  <br>
+  <p></p>
 </div>
 
+<div class="tab-content">
 
-<%= link_to 'New Character', new_character_path(character: {game_id: @game.id}) %>
+	<% @game.tabs.each do |tab| %>
+  		<%=	render partial: 'tabs/tab_body', locals: {tab: tab} %>
+  	<% end %>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
+</div>
+
 <%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_game_path(@game) %>

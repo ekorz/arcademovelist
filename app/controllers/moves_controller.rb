@@ -12,6 +12,7 @@ class MovesController < ApplicationController
 
 
   def show
+    
   end
 
 
@@ -22,7 +23,7 @@ class MovesController < ApplicationController
   # POST /moves.json
   def create 
    @move = Move.create(move_params)
-   redirect_to @move.character
+   redirect_to @move.tab.tabable
   end
 
   # PATCH/PUT /moves/1
@@ -30,11 +31,11 @@ class MovesController < ApplicationController
   def update
     respond_to do |format|
       if @move.update(move_params)
-        format.html { redirect_to @move.character, notice: 'Move was successfully updated.' }
+        format.html { redirect_to @move.tab.tabable, notice: 'Move was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @move.errors, status: :unprocessable_entity }
+        format.json { render json: @move.tab.tabable, status: :unprocessable_entity }
       end
     end
   end
@@ -46,7 +47,7 @@ class MovesController < ApplicationController
     else
       flash[:error] = "Move could not be deleted."
     end
-    redirect_to @move.character
+    redirect_to @move.tab.tabable
   end
 
   private
@@ -57,7 +58,7 @@ class MovesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def move_params
-      params.require(:move).permit(:character_id, :name, :description)
+      params.require(:move).permit(:tab_id, :name, :description)
     end
 
 end

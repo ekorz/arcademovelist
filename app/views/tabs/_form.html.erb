@@ -1,0 +1,6 @@
+<%= form_for @tab do |f| %>
+  <%= f.hidden_field :tabable_id %>
+  <%= f.hidden_field :tabable_type %>
+  <%= f.text_field :tab_type, placeholder: 'Tab Name' %>
+  <%= f.submit "Submit" %>
+<% end %>

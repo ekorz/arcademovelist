@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><%= @move.name %></h1>
+  <strong><%= @move.description %></strong>
+</p>
+
+<p>
+  <%= @move.character.game.name %> <%= @move.character.name %>
+</p>
+
+
+<%= link_to 'Back', @move.character %>

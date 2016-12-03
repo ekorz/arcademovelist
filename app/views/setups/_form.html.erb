@@ -1,0 +1,8 @@
+<%= form_for @setup do |f| %>
+  <%= f.hidden_field :tab_id %>
+  <%= f.check_box :jamma %> Jamma<br>
+  <%= f.check_box :kick_harness %> Kick Harness<br>
+  <%= f.text_field :region, placeholder: 'Region' %><br>
+  <%= f.text_area :button_layout, placeholder: 'Button Layout' %><br>
+  <%= f.submit "Submit" %>
+<% end %>

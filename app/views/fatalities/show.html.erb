@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h1><%= @fatality.name %></h1>
+  <strong><%= @fatality.description %></strong>
+</p>
+
+<%= link_to 'Edit', edit_fatality_path(@fatality) %>
+<%= link_to 'Back', @fatality.tab.tabable %>

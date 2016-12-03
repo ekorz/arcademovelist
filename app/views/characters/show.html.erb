@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <h3><%= @character.name %> <%= @character.description %></h3>
+  <ul class="nav nav-tabs" role="tablist">
 
-<p>
-  <h1><%= @character.name %></h1>
-  <%= @character.description %>
-</p>
-
-<div id="moves_wrapper">
-	<%= render @character.moves %>
+  	<% @character.tabs.each do |tab| %>
+  		<%=	render partial: 'tabs/tab', locals: {tab: tab} %>
+  	<% end %>
+    <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @character.id, tabable_type: @character.class.name}) %></li>
+  </ul>
+  <br>
+  <p></p>
 </div>
 
-<br>
-<%= link_to 'New Move', new_move_path(move: {character_id: @character.id}) %>
-<%= link_to 'Back', @character.game %>
+<div class="tab-content">
+
+	<% @character.tabs.each do |tab| %>
+  		<%=	render partial: 'tabs/tab_body', locals: {tab: tab} %>
+  	<% end %>
+
+</div>
+
+<%= link_to 'Back', @character.tab.tabable %>

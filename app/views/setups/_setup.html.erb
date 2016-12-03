@@ -1,0 +1,13 @@
+<table cellpadding="0" width="100%">
+<tbody>
+<tr>
+<td valign="center" align="center" width="15%"><%= link_to "Edit", edit_setup_path(object.id) %> <%= link_to "Delete", setup_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
+<td valign="center" align="left">
+	<h4>Region: <%= object.region %></h4><br>
+	<h4>Kick Harness: <%= object.kick_harness %></h4><br>
+	<h4>Jamma: <%= object.jamma %></h4><br>
+	<h4>Button Layout: <%= object.button_layout %></h4><br>
+</td>
+</tr>
+</tbody>
+</table>

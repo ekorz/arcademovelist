@@ -1,16 +1,15 @@
-<table>
+<table width="100%">
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><h1><%= link_to game.name, game %><h1></td>
+        <td valign="center" align="left" width="85%"><h1><%= link_to game.name, game %><h1></td>
         <td></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td valign="center" align="right"><%= link_to 'Edit', edit_game_path(game) %><br>
+        <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'New Game', new_game_path %>
