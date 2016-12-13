@@ -1,7 +1,7 @@
 <table cellpadding="0" width="100%">
 <tbody>
 <tr>
-<td valign="center" align="center" width="15%"><%= link_to "Edit", edit_setup_path(object.id) %> <%= link_to "Delete", setup_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
+<td valign="center" align="center" width="15%"><%= link_to "Edit", edit_build_path(object.id) %> <%= link_to "Delete", build_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
 <td valign="center" align="left">
 	<h4>Moves: <%= object.moves %></h4><br>
 	<h4>Fatalities: <%= object.fatalities %></h4><br>
