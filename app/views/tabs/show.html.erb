@@ -1,13 +1,37 @@
-<p id="notice"><%= notice %></p>
+<%
+
+singular = @tab.tab_type.singularize.downcase
+plural = @tab.tab_type.pluralize.downcase 
+
+%>
+
+<div class="container">
+  <h3><%= @tab.tab_type %></h3>
+  <ul class="nav nav-tabs" role="tablist">
+
+  	<% @tab.tabs.each do |tab| %>
+  		<%=	render partial: 'tabs/tab', locals: {tab: tab} %>
+  	<% end %>
+    <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @tab.id, tabable_type: @tab.class.name}) %></li>
+  </ul>
+  <br>
+  <p></p>
+</div>
 
 <p>
-  <h1><%= @move.name %></h1>
-  <strong><%= @move.description %></strong>
+  <strong>Tabable ID: <%= @tab.tabable_id%></strong><br>
+  <strong>Tabable Type: <%= @tab.tabable_type %></strong>
 </p>
 
-<p>
-  <%= @move.character.game.name %> <%= @move.character.name %>
-</p>
+  <div>
+
+	<% @tab.send(plural).each do |object| %>
+  		<%=	render partial: "#{plural}/#{singular}", locals: {object: object} %>
+  	<% end %>
+
+  </div>
 
 
-<%= link_to 'Back', @move.character %>
+<a href='/<%= plural %>/new?<%= singular %>%5Btab_id%5D=<%= @tab.id %>'>New <%= @tab.tab_type.singularize %></a>
+
+<%= link_to 'Back', @tab.tabable %>

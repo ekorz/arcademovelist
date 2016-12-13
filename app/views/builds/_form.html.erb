@@ -1,0 +1,6 @@
+<%= form_for @build do |f| %>
+  <%= f.hidden_field :tab_id %>
+  <%= f.check_box :moves %> Moves<br>
+  <%= f.check_box :fatalities %> Fatalities<br>
+  <%= f.submit "Submit" %>
+<% end %>

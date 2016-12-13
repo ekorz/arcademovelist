@@ -6,6 +6,7 @@ Arcademovelist::Application.routes.draw do
   resources :notes
   resources :setups
   resources :fatalities
+  resources :builds
   
   root "games#index"
 end
