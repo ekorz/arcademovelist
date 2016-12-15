@@ -21,17 +21,17 @@ class BuildsController < ApplicationController
 
   def create 
    @build = Build.create(build_params)
-   redirect_to @build.tab.tabable
+   redirect_to @build.tab
   end
 
   def update
     respond_to do |format|
       if @build.update(build_params)
-        format.html { redirect_to @build.tab.tabable, notice: 'Note was successfully updated.' }
+        format.html { redirect_to @build.tab, notice: 'Note was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @build.tab.tabable, status: :unprocessable_entity }
+        format.json { render json: @build.tab, status: :unprocessable_entity }
       end
     end
   end
@@ -43,7 +43,7 @@ class BuildsController < ApplicationController
     else
       flash[:error] = "Note could not be deleted."
     end
-    redirect_to @build.tab.tabable
+    redirect_to @build.tab
   end
 
   private
@@ -54,7 +54,7 @@ class BuildsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def build_params
-      params.require(:build).permit(:tab_id, :moves, :fatalities)
+      params.require(:build).permit(:tab_id, :name)
     end
 
 end

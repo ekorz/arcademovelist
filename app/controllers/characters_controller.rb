@@ -1,7 +1,7 @@
 class CharactersController < ApplicationController
 
   before_action :set_character, only: [:show, :edit, :update, :destroy]
-
+ 
   def index
     @characters = Character.all
   end
@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
   end
 
   def create 
-   @character = Character.create(character_params)
+   @character = Character.create(character_params)     
    redirect_to @character.tab.tabable
   end
 

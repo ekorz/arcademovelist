@@ -16,7 +16,6 @@
 	<% @character.tabs.each do |tab| %>
   		<%=	render partial: 'tabs/tab_body', locals: {tab: tab} %>
   	<% end %>
-
 </div>
 
-<%= link_to 'Back', @character.tab.tabable %>
+<%= link_to 'Back', @character.tab %>

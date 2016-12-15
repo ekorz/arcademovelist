@@ -5,6 +5,8 @@ ruby '2.1.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.13'
 
+gem 'byebug'
+
 gem 'rails_12factor'
 
 gem 'simple_form'

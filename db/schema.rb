@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213003638) do
+ActiveRecord::Schema.define(version: 20161214141637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "builds", force: true do |t|
-    t.boolean  "moves"
-    t.boolean  "fatalities"
     t.integer  "tab_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "builds", ["tab_id"], name: "index_builds_on_tab_id", using: :btree

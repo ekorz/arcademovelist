@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Moves: <%= @build.moves %></strong><br>
-  <strong>Fatalities: <%= @build.fatalities %></strong><br>
-</p>
+  <strong>Name: <%= @build.name %></strong><br>
+  <strong>Tab Relation: <%= @build.tab %></strong><br></p>
 
 <%= link_to 'Edit', edit_build_path(@build) %>
-<%= link_to 'Back', @build.tab.tabable %>
+<%= link_to 'Back', @build.tab %>
