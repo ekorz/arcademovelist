@@ -1,15 +1,30 @@
-<table width="100%">
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td valign="center" align="left" width="85%"><h1><%= link_to game.name, game %><h1></td>
-        <td></td>
-        <td valign="center" align="right"><%= link_to 'Edit', edit_game_path(game) %><br>
-        <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div>
+  <%= text_field_tag 'search_field' %>
+</div>
+<ul>
+  <% @games.each do |game| %>
+      <li data-name='<%=game.name.downcase%>' data-year='<%=game.year.downcase%>' data-mfg='<%=game.description.downcase%>'>
+        <table width="100%">
+          <tr>
+            <td valign="center" align="left" width="85%">
+              <h1>
+                <%= link_to game do %> 
+                  <%= game.name %> <nbsp> 
+               <% end %>
+              </h1> 
+            </td>
+            <td>
+              <span style='display:none' data-aux='<%= game.year.downcase %>' class= 'aux' > <%= game.year.downcase %>
+              </span>
+              <span style='display:none' data-aux= '<%= game.description.downcase %>' class= 'aux' > <%= game.description %>
+              </span>
+            </td>
+            <td valign="center" align="right"><%= link_to 'Edit', edit_game_path(game) %><br>
+            <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        </table>
+      </li>
     <% end %>
-  </tbody>
-</table>
-<br>
-
+</ul>
+ 
 <%= link_to 'New Game', new_game_path %>
