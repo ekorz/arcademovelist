@@ -9,4 +9,5 @@ Arcademovelist::Application.routes.draw do
   resources :builds
   
   root "games#index"
+
 end

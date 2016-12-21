@@ -1,6 +1,20 @@
 <%= form_for @tab do |f| %>
   <%= f.hidden_field :tabable_id %>
   <%= f.hidden_field :tabable_type %>
-  <%= f.text_field :tab_type, placeholder: 'Tab Name' %>
-  <%= f.submit "Submit" %>
+  <%= f.text_field :tab_type, placeholder: 'Tab Name' %><br><br> 
+
+    <div>
+    <%= add_child_button "New #{@tab.singular_titlecase}", @tab.plural.to_sym, "##{@tab.plural}" %>
+    <%= new_fields_template f, @tab.plural.to_sym %>
+	</div>
+
+	<div id="<%= @tab.plural %>" style="border:1px solid #777;">
+      <%= f.fields_for @tab.plural.to_sym do |builder| %>
+        <div>
+        <%= render "child_fields", :f => builder %>
+      </div>
+      <% end %>
+	</div>
+
+  <%= f.submit "Save" %>
 <% end %>

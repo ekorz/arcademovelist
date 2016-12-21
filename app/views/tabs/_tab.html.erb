@@ -1,6 +1,4 @@
 <style> 
-
-
 </style>
 
 <li role="presentation"><%= link_to tab.tab_type, "#tab-#{tab.id}", role: "tab", data: {toggle: "tab"}  %><%= link_to '(show)', tab_path(tab) %><%= link_to '(edit)', edit_tab_path(tab) %><%= link_to '(delete)', tab_path(tab), method: :delete, data: {confirm: "Sure?" } %></li>

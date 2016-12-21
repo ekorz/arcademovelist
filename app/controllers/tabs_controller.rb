@@ -1,5 +1,7 @@
 class TabsController < ApplicationController
+  helper :tabs
 	before_action :set_tab, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @tabs = Tab.all
@@ -63,6 +65,8 @@ class TabsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tab_params
-      params.require(:tab).permit(:tabable_id, :tabable_type, :tab_type)
+      params.require(:tab).permit(:tabable_id, :tabable_type, :tab_type,
+        moves_attributes: [:id, :name, :description, :_destroy],
+        fatalities_attributes: [:id, :name, :description, :_destroy])
     end
 end
