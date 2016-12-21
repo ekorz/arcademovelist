@@ -3,21 +3,28 @@
 </div>
 <ul>
   <% @games.each do |game| %>
-      <li data-name='<%=game.name.downcase%>' data-year='<%=game.year.downcase%>' data-mfg='<%=game.description.downcase%>'>
-        <table width="100%">
+      
+      <li <% game.attributes.each_pair do |name, value| %> 
+        data-<%= name.downcase %>='<%= value.try(:downcase) %>' 
+        <% end %> >
+      <table width="100%">
           <tr>
             <td valign="center" align="left" width="85%">
               <h1>
-                <%= link_to game do %> 
-                  <%= game.name %> <nbsp> 
-               <% end %>
+                  <%= link_to game do %> 
+                  <%= game.name %> 
+                  <% end %>
               </h1> 
             </td>
             <td>
-              <span style='display:none' data-aux='<%= game.year.downcase %>' class= 'aux' > <%= game.year.downcase %>
-              </span>
-              <span style='display:none' data-aux= '<%= game.description.downcase %>' class= 'aux' > <%= game.description %>
-              </span>
+
+              <% game.attributes.each_pair do |name, value| %> 
+                  <span style='display:none' 
+                        data-aux='<%= value.try(:downcase) %>' 
+                        class='aux'> 
+                            <%= value %>
+                  </span> 
+              <% end %>       
             </td>
             <td valign="center" align="right"><%= link_to 'Edit', edit_game_path(game) %><br>
             <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
