@@ -1,0 +1,5 @@
+class AddPositionToTabs < ActiveRecord::Migration
+  def change
+    add_column :tabs, :position, :integer
+  end
+end

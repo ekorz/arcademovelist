@@ -1,10 +1,21 @@
 class TabsController < ApplicationController
   helper :tabs
+  skip_before_action :verify_authenticity_token, only: [:sort]
 	before_action :set_tab, only: [:show, :edit, :update, :destroy]
 
 
   def index
+    @tabs = Tab.order('tabs.position ASC')
+  end
+
+  def sort
     @tabs = Tab.all
+      
+    @tabs.each do |tab|
+      tab.position = params['tab'].index(tab.id.to_s) + 1
+      tab.save
+      end
+    render :nothing => true
   end
 
   def edit
@@ -12,6 +23,7 @@ class TabsController < ApplicationController
 
   def show
   end
+
 
   def create
 
@@ -65,7 +77,7 @@ class TabsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tab_params
-      params.require(:tab).permit(:tabable_id, :tabable_type, :tab_type,
+      params.require(:tab).permit(:tabable_id, :tabable_type, :tab_type, :position,
         moves_attributes: [:id, :name, :description, :_destroy],
         fatalities_attributes: [:id, :name, :description, :_destroy],
         characters_attributes: [:id, :name, :description, :_destroy])

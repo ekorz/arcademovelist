@@ -1,5 +1,5 @@
 class Tab < ActiveRecord::Base
-  
+  acts_as_list
   belongs_to :tabable, polymorphic: true
 
   has_many :tabs, as: :tabable

@@ -11,6 +11,8 @@ gem 'rails_12factor'
 
 gem 'simple_form'
 
+gem "acts_as_list"
+
 # Use postgres as the database for Active Record
 gem 'pg'
 

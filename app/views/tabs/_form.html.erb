@@ -1,7 +1,8 @@
 <%= form_for @tab do |f| %>
   <%= f.hidden_field :tabable_id %>
   <%= f.hidden_field :tabable_type %>
-  <%= f.text_field :tab_type, placeholder: 'Tab Name' %><br><br> 
+  <%= f.text_field :tab_type, placeholder: 'Tab Name' %><br>
+  <%= f.number_field :position %><br><br> 
 
   
   <% if @tab.id != nil %> <!--this is what is blocking characters/builds errors -->
@@ -9,15 +10,15 @@
   <div>
     <%= add_child_button "New #{@tab.singular_titlecase}", @tab.plural.to_sym, "##{@tab.plural}" %> 
     <%= new_fields_template f, @tab.plural.to_sym %>
-	</div>
+  </div>
 
-	<div id="<%= @tab.plural %>" style="border:1px solid #777;">
+  <div id="<%= @tab.plural %>" style="border:1px solid #777;">
       <%= f.fields_for @tab.plural.to_sym do |b| %>
         <div>
         <%= render "child_fields", f: b %>
       </div>
       <% end %>
-	</div>
+  </div>
   <% end %>
   
   <%= f.submit "Save" %>
