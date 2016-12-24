@@ -12,6 +12,7 @@ class Tab < ActiveRecord::Base
   has_many :builds, dependent: :destroy
 
   accepts_nested_attributes_for :moves, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :characters, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
   accepts_nested_attributes_for :fatalities, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
   accepts_nested_attributes_for :builds, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
   accepts_nested_attributes_for :setups, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true

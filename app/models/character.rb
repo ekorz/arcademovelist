@@ -8,10 +8,12 @@ class Character < ActiveRecord::Base
   def initialize(character_params = {})
 
   	super character_params
-# you only wish to add bars on the newly instantiated Foo instances
+
+    if self.tab != nil
+
     if !self.tab.builds.empty?
       self.tab.builds.each{|build| self.tabs.build(tab_type: build.name)}
     end
-
+  end
   end
 end

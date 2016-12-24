@@ -31,7 +31,8 @@ $(document).on('click', '.add_child', function() {
         var new_id = new Date().getTime(); 
         
         var Dest = (target == '') ? $(this).parent() : $(target);
-        Dest.append(window[association+'_fields'].replace(regexp, new_id));
+        
+        Dest.append(window['children_fields'].replace(regexp, new_id));
         return false;
       });
 
