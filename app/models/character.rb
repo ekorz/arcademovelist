@@ -9,11 +9,11 @@ class Character < ActiveRecord::Base
 
   	super character_params
 
-    if self.tab != nil
+    if self.tab != nil #<!--this is what is blocking characters/builds errors -->
 
-    if !self.tab.builds.empty?
-      self.tab.builds.each{|build| self.tabs.build(tab_type: build.name)}
+      if !self.tab.builds.empty?
+        self.tab.builds.each{|build| self.tabs.build(tab_type: build.name)}
+      end
     end
-  end
   end
 end

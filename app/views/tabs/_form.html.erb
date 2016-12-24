@@ -4,7 +4,7 @@
   <%= f.text_field :tab_type, placeholder: 'Tab Name' %><br><br> 
 
   
-  <% if @tab.id != nil %>
+  <% if @tab.id != nil %> <!--this is what is blocking characters/builds errors -->
 
   <div>
     <%= add_child_button "New #{@tab.singular_titlecase}", @tab.plural.to_sym, "##{@tab.plural}" %> 
