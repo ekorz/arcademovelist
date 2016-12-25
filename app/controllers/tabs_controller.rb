@@ -9,8 +9,12 @@ class TabsController < ApplicationController
   end
 
   def sort
-    @tabs = Tab.all
-      
+   # @tabs = Tab.all
+   
+    param = params[:tabable_id]
+
+    @tabs = Tab.where("tabable_id = '#{param}'")
+
     @tabs.each do |tab|
       tab.position = params['tab'].index(tab.id.to_s) + 1
       tab.save

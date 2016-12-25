@@ -18,7 +18,7 @@
     complete: function(request){
     $('#tabs').effect('highlight');
     },
-    url: '/tabs/sort'})
+    url: '/tabs/sort?tabable_id=<%=@game.id%>'})
     }
     });
     });
@@ -31,8 +31,8 @@
   <div id="tabs">
   <ul class="nav nav-tabs" role="tablist">
 
-  	<% @game.tabs.each do |tab| %>
-  		<%=	render partial: 'tabs/tab', locals: {tab: tab} %>
+  	<% @game.tabs.reverse_each do |tab| %>
+      <%=	render partial: 'tabs/tab', locals: {tab: tab} %>
   	<% end %>
     <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @game.id, tabable_type: @game.class.name}) %></li>
   </ul>
