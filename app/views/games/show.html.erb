@@ -1,31 +1,3 @@
-<head>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $(document).ready(function(){
-    $('#tabs').sortable({
-    axis: 'x',
-    dropOnEmpty: false,
-    handle: '.handle',
-    items: 'li',
-    opacity: 0.4,
-    scroll: true,
-    update: function(){
-    $.ajax({
-    type: 'post',
-    data: $('#tabs').sortable('serialize'),
-    dataType: 'script',
-    complete: function(request){
-    $('#tabs').effect('highlight');
-    },
-    url: '/tabs/sort?tabable_id=<%=@game.id%>'})
-    }
-    });
-    });
-  </script>
-</head>
-
-
 <div class="container">
   <h3><%= @game.name %> <%= @game.developer %> <%= @game.year %></h3>
   <div id="tabs">

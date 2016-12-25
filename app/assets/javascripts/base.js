@@ -42,3 +42,29 @@ $(document).on('click', '.add_child', function() {
         $(this).parent().hide();
         return false;
       });
+
+$(document).ready(function(){
+
+    
+    var lid = window.location.href.substr(window.location.href.lastIndexOf('/') +1);
+    var sort_url = "/tabs/sort?tabable_id=" + lid;
+      
+     $('#tabs').sortable({
+    axis: 'x',
+    dropOnEmpty: false,
+    handle: '.handle',
+    items: 'li',
+    opacity: 0.4,
+    scroll: true,
+    update: function(){
+    $.ajax({
+    type: 'post',
+    data: $('#tabs').sortable('serialize'),
+    dataType: 'script',
+    complete: function(request){
+    $('#tabs').effect('highlight');
+    },
+    url: sort_url})
+    }
+    });
+    });
