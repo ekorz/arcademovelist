@@ -29,13 +29,13 @@
 
   <div>
 
-	<% @tab.send(plural).each do |object| %>
-  		<%=	render partial: "#{plural}/#{singular}", locals: {object: object} %>
+	<% @tab.send(@tab.plural).each do |object| %>
+  		<%=	render partial: "#{@tab.plural}/#{@tab.singular}", locals: {object: object} %>
   	<% end %>
 
   </div>
 
 
-<a href='/<%= plural %>/new?<%= singular %>%5Btab_id%5D=<%= @tab.id %>'>New <%= @tab.tab_type.singularize %></a>
+<a href='/<%= @tab.plural %>/new?<%= @tab.singular %>%5Btab_id%5D=<%= @tab.id %>'>New <%= @tab.tab_type.singularize %></a>
 
 <%= link_to 'Back', @tab.tabable %>
