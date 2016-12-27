@@ -3,7 +3,7 @@ class CharactersController < ApplicationController
   before_action :set_character, only: [:show, :edit, :update, :destroy]
  
   def index
-    @characters = Character.all
+    @characters = Character.order('characters.name ASC')
   end
 
   def new
@@ -51,7 +51,7 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:tab_id, :name, :description)
+      params.require(:character).permit(:tab_id, :name, :description, :position)
     end
 
 end

@@ -1,15 +1,27 @@
 class MovesController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, only: [:sort]
   before_action :set_move, only: [:show, :edit, :update, :destroy]
 
   def index
-    @moves = Move.all
+    @moves = Move.order('moves.position ASC')
+  end
+
+  def sort
+
+    param = params[:tab_id]
+
+    @moves = Move.where("tab_id = '#{param}'")
+
+    @moves.each do |move|
+      move.position = params['move'].index(move.id.to_s) + 1
+      move.save
+      end
+    render :nothing => true
   end
 
   def new
     @move = Move.new(move_params)
   end
-
 
   def show
     
@@ -58,7 +70,7 @@ class MovesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def move_params
-      params.require(:move).permit(:tab_id, :name, :description)
+      params.require(:move).permit(:tab_id, :name, :description, :position)
     end
 
 end

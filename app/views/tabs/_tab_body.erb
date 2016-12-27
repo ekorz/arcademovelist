@@ -1,8 +1,8 @@
-<div role="tabpanel" class="tab-pane" id="tab-<%= tab.id %>">
+<div role="tabpanel" class="tab-pane" data-name="<%= tab.plural %>" id="tab-<%= tab.id %>">
 
 	<div>
 	<% if Tab.relations.include?(tab.plural) %>
-		<% tab.send(tab.plural).each do |object| %>
+		<% tab.send(tab.plural).order("position asc").each do |object| %>
   			<%=	render partial: "#{tab.plural}/#{tab.singular}", locals: {object: object} %>
   		<% end %>
   	<% end %>

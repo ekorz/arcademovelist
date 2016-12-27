@@ -54,7 +54,7 @@ class BuildsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def build_params
-      params.require(:build).permit(:tab_id, :name)
+      params.require(:build).permit(:tab_id, :name, :position)
     end
 
 end

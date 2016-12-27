@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224031903) do
+ActiveRecord::Schema.define(version: 20161227022328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20161224031903) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "position"
   end
 
   add_index "builds", ["tab_id"], name: "index_builds_on_tab_id", using: :btree
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20161224031903) do
     t.integer  "tab_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "characters", ["tab_id"], name: "index_characters_on_tab_id", using: :btree
@@ -41,6 +43,7 @@ ActiveRecord::Schema.define(version: 20161224031903) do
     t.integer  "tab_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "fatalities", ["tab_id"], name: "index_fatalities_on_tab_id", using: :btree
@@ -62,6 +65,7 @@ ActiveRecord::Schema.define(version: 20161224031903) do
     t.integer  "tab_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "moves", ["tab_id"], name: "index_moves_on_tab_id", using: :btree
@@ -71,6 +75,7 @@ ActiveRecord::Schema.define(version: 20161224031903) do
     t.integer  "tab_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "notes", ["tab_id"], name: "index_notes_on_tab_id", using: :btree
@@ -83,6 +88,7 @@ ActiveRecord::Schema.define(version: 20161224031903) do
     t.boolean  "jamma"
     t.text     "button_layout"
     t.string   "region"
+    t.integer  "position"
   end
 
   add_index "setups", ["tab_id"], name: "index_setups_on_tab_id", using: :btree

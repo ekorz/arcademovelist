@@ -1,6 +1,7 @@
 <%= form_for @move do |f| %>
   <%= f.hidden_field :tab_id %>
   <%= f.text_field :name, placeholder: 'Name' %><br>
-  <%= f.text_field :description, placeholder: 'Description' %>
+  <%= f.text_field :description, placeholder: 'Description' %><br>
+  <%= f.number_field :position %>
   <%= f.submit "Save" %>
 <% end %>

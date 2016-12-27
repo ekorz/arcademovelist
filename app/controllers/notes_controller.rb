@@ -10,6 +10,8 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
   end
 
+  def sort
+  end
 
   def show
     
@@ -54,7 +56,7 @@ class NotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def note_params
-      params.require(:note).permit(:tab_id, :description)
+      params.require(:note).permit(:tab_id, :description, :position)
     end
 
 end

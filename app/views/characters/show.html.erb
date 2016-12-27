@@ -12,9 +12,8 @@
   <p></p>
 </div>
 </div>
-<div class="tab-content">
-
-	<% @character.tabs.each do |tab| %>
+<div id="rows" class="tab-content">
+  <% @character.tabs.each do |tab| %>
   		<%=	render partial: 'tabs/tab_body', locals: {tab: tab} %>
   	<% end %>
 </div>

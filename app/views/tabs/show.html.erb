@@ -27,7 +27,7 @@
 
 </p>
 
-  <div>
+  <div id='#rows'>
 
 	<% @tab.send(@tab.plural).each do |object| %>
   		<%=	render partial: "#{@tab.plural}/#{@tab.singular}", locals: {object: object} %>

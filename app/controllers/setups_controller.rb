@@ -10,6 +10,8 @@ class SetupsController < ApplicationController
     @setup = Setup.new(setup_params)
   end
 
+  def sort
+  end
 
   def show
     
@@ -54,7 +56,7 @@ class SetupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def setup_params
-      params.require(:setup).permit(:tab_id, :jamma, :kick_harness, :button_layout, :region)
+      params.require(:setup).permit(:tab_id, :jamma, :kick_harness, :button_layout, :region, :position)
     end
 
 end

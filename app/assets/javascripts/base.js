@@ -68,3 +68,31 @@ $(document).ready(function(){
     }
     });
     });
+
+$(document).on('click', function(){
+
+    var obj = $("#rows .active").data('name');
+    var tag = $("#rows .active").attr('id');
+    var myRe = /[^-]+$/;
+    var myTargetId = myRe.exec(tag);
+    var sort_url = "/" + obj + "/sort?tab_id=" + myTargetId;
+    
+    $('#rows').sortable({
+    axis: 'y',
+    dropOnEmpty: false,
+    handle: '.handle',
+    items: 'li',
+    opacity: 0.4,
+    scroll: true,
+    update: function(){
+    $.ajax({
+    type: 'post',
+    data: $('#rows').sortable('serialize'),
+    dataType: 'script',
+    complete: function(request){
+    $('#rows').effect('highlight');
+    },
+    url: sort_url})
+    }
+    });
+    });

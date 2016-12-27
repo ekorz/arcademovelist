@@ -1,15 +1,26 @@
 class FatalitiesController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, only: [:sort]
   before_action :set_fatality, only: [:show, :edit, :update, :destroy]
 
   def index
     @fatalitys = Fatality.all
   end
 
+  def sort
+    param = params[:tab_id]
+
+    @fatalities = Fatality.where("tab_id = '#{param}'")
+
+    @fatalities.each do |fatality|
+      fatality.position = params['fatality'].index(fatality.id.to_s) + 1
+      fatality.save
+      end
+    render :nothing => true
+  end
+
   def new
     @fatality = Fatality.new(fatality_params)
   end
-
 
   def show
     
@@ -58,7 +69,7 @@ class FatalitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fatality_params
-      params.require(:fatality).permit(:tab_id, :name, :description)
+      params.require(:fatality).permit(:tab_id, :name, :description, :position)
     end
 
 end
