@@ -1,5 +1,6 @@
 <%= form_for @build do |f| %>
   <%= f.hidden_field :tab_id %>
   <%= f.text_field :name %> Name
+  <%= f.number_field :position %> Position
   <%= f.submit "Submit" %>
 <% end %>

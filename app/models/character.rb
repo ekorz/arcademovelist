@@ -12,7 +12,7 @@ class Character < ActiveRecord::Base
     if self.tab != nil #<!--this is what is blocking characters/builds errors -->
 
       if !self.tab.builds.empty?
-        self.tab.builds.each{|build| self.tabs.build(tab_type: build.name)}
+        self.tab.builds.each{|build| self.tabs.build(tab_type: build.name, position: build.position)}
       end
     end
   end

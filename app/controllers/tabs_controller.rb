@@ -62,6 +62,7 @@ class TabsController < ApplicationController
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
+    
     @tab.destroy
     respond_to do |format|
       format.html { redirect_to @tab.tabable }
@@ -82,8 +83,12 @@ class TabsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tab_params
       params.require(:tab).permit(:tabable_id, :tabable_type, :tab_type, :position,
-        moves_attributes: [:id, :name, :description, :_destroy],
-        fatalities_attributes: [:id, :name, :description, :_destroy],
-        characters_attributes: [:id, :name, :description, :_destroy])
+        moves_attributes: [:id, :name, :description, :position, :_destroy],
+        fatalities_attributes: [:id, :name, :description, :position, :_destroy],
+        characters_attributes: [:id, :name, :description, :position, :_destroy],
+        notes_attributes: [:id, :name, :description, :position, :_destroy],
+        setups_attributes: [:id, :name, :position, :kick_harness, :jamma, :button_layout, :region, :description, :position, :_destroy],
+        builds_attributes: [:id, :name, :_destroy],
+        )
     end
 end
