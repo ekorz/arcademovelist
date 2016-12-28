@@ -1,11 +1,18 @@
 <div role="tabpanel" class="tab-pane" data-name="<%= tab.plural %>" id="tab-<%= tab.id %>">
-
+	
 	<div>
 	<% if Tab.relations.include?(tab.plural) %>
-		<% tab.send(tab.plural).order("position asc").each do |object| %>
-  			<%=	render partial: "#{tab.plural}/#{tab.singular}", locals: {object: object} %>
+
+		<% if tab.send(tab.plural).column_names.include?('name') %>
+			<% tab.send(tab.plural).order("position asc, name asc").each do |object| %>
+	  			<%=	render partial: "#{tab.plural}/#{tab.singular}", locals: {object: object} %>
+	  		<% end %>
+	  		<% else %>
+	  		<% tab.send(tab.plural).order("position asc").each do |object| %>
+	  			<%=	render partial: "#{tab.plural}/#{tab.singular}", locals: {object: object} %>
+	  		<% end %>
   		<% end %>
-  	<% end %>
+  	<% end %>	
     </div>
 
 <a href='/<%= tab.plural %>/new?<%= tab.singular %>%5Btab_id%5D=<%= tab.id %>'>New <%= tab.singular_titlecase %></a>

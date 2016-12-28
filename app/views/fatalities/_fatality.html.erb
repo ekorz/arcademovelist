@@ -2,8 +2,8 @@
 <table cellpadding="0" width="100%">
 <tbody>
 <tr>
-<td> <span class="handle">[drag]</span> <%= object.position %> </td>
-<td valign="center" align="center" width="15%"><strong><%= link_to object.name, fatality_path(object.id) %></strong><br><%= link_to "Edit", edit_fatality_path(object.id) %> <%= link_to "Delete", fatality_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
+<td width="10%"> <span class="handle">[drag]</span> <%= object.position %> </td>
+<td valign="center" align="center" width="18%"><strong><%= link_to object.name, fatality_path(object.id) %></strong><br><%= link_to "Edit", edit_fatality_path(object.id) %> <%= link_to "Delete", fatality_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
 <td valign="center" align="left"><h1><%= object.description %></h1></td>
 </tr>
 </tbody>

@@ -1,6 +1,0 @@
-<%= f.hidden_field :_destroy, :class => 'removable' %>
-<% f.object.class::EDIT_FIELDS.each do |field_hash| %>
-<%= f.label field_hash[:column_name] %>
-<%= f.send(field_hash[:column_type], field_hash[:column_name]) %>
-<% end %>
-<%= remove_child_button "Remove"%>
