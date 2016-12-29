@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <h1><%= @move.name %></h1>
   <strong><%= @move.description %></strong>
 </p>
-
 <%= link_to 'Edit', edit_move_path(@move) %>
 <%= link_to 'Back', @move.tab.tabable %>

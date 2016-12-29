@@ -1,0 +1,16 @@
+<div role="tabpanel" class="tab-pane" data-name="<%= tab.plural %>" id="tab-<%= tab.id %>">
+  <div>
+    <% if Tab.relations.include?(tab.plural) %>
+      <% if tab.send(tab.plural).column_names.include?('name') %>
+        <% tab.send(tab.plural).order("position asc, name asc").each do |object| %>
+          <%= render partial: "#{tab.plural}/#{tab.singular}", locals: {object: object} %>
+        <% end %>
+      <% else %>
+        <% tab.send(tab.plural).order("position asc").each do |object| %>
+          <%= render partial: "#{tab.plural}/#{tab.singular}", locals: {object: object} %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= tab.tab_type%>: <%= link_to 'show', tab_path(tab) %> <%= link_to 'edit/add', edit_tab_path(tab) %> <%= link_to 'delete-all', tab_path(tab), method: :delete, data: {confirm: "...not like this" } %>
+</div>

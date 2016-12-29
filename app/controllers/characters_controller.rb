@@ -1,7 +1,7 @@
 class CharactersController < ApplicationController
 
   before_action :set_character, only: [:show, :edit, :update, :destroy]
- 
+
   def index
     @characters = Character.order('characters.name ASC')
   end
@@ -16,9 +16,9 @@ class CharactersController < ApplicationController
   def edit
   end
 
-  def create 
-   @character = Character.create(character_params)     
-   redirect_to @character.tab.tabable
+  def create
+    @character = Character.create(character_params)
+    redirect_to @character.tab.tabable
   end
 
   def update
@@ -34,7 +34,7 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    
+
     if @character.destroy
       flash[:success] = "Character was deleted."
     else
@@ -45,13 +45,13 @@ class CharactersController < ApplicationController
 
   private
 
-    def set_character
-      @character = Character.find(params[:id])
-    end
+  def set_character
+    @character = Character.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def character_params
-      params.require(:character).permit(:tab_id, :name, :description, :position)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def character_params
+    params.require(:character).permit(:tab_id, :name, :description, :position)
+  end
 
 end

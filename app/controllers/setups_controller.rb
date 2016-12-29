@@ -18,21 +18,21 @@ class SetupsController < ApplicationController
     @setups.each do |setup|
       setup.position = params['setup'].index(setup.id.to_s) + 1
       setup.save
-      end
+    end
     render :nothing => true
   end
 
   def show
-    
+
   end
 
 
   def edit
   end
 
-  def create 
-   @setup = Setup.create(setup_params)
-   redirect_to @setup.tab.tabable
+  def create
+    @setup = Setup.create(setup_params)
+    redirect_to @setup.tab.tabable
   end
 
   def update
@@ -48,7 +48,7 @@ class SetupsController < ApplicationController
   end
 
   def destroy
-    
+
     if @setup.destroy
       flash[:success] = "Note was deleted."
     else
@@ -59,14 +59,13 @@ class SetupsController < ApplicationController
 
   private
 
-    def set_setup
-      @setup = Setup.find(params[:id])
-    end
+  def set_setup
+    @setup = Setup.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def setup_params
-      params.require(:setup).permit(:tab_id, :jamma, :kick_harness, :button_layout, :region, :position)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def setup_params
+    params.require(:setup).permit(:tab_id, :jamma, :kick_harness, :button_layout, :region, :position)
+  end
 
 end
-

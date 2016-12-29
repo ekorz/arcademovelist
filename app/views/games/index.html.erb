@@ -3,35 +3,32 @@
 </div>
 <ul>
   <% @games.each do |game| %>
-      
-      <li <% game.attributes.each_pair do |name, value| %> 
+    <li <% game.attributes.each_pair do |name, value| %> 
         data-<%= name.downcase %>='<%= value.try(:downcase) %>' 
         <% end %> >
       <table width="100%">
-          <tr>
-            <td valign="center" align="left" width="85%">
-              <h1>
-                  <%= link_to game do %> 
-                  <%= game.name %> 
-                  <% end %>
-              </h1> 
-            </td>
-            <td>
-
-              <% game.attributes.each_pair do |name, value| %> 
-                  <span style='display:none' 
+        <tr>
+          <td valign="center" align="left" width="85%">
+            <h1>
+              <%= link_to game do %>
+                <%= game.name %>
+              <% end %>
+            </h1>
+          </td>
+          <td>
+            <% game.attributes.each_pair do |name, value| %>
+              <span style='display:none' 
                         data-aux='<%= value.try(:downcase) %>' 
-                        class='aux'> 
-                            <%= value %>
-                  </span> 
-              <% end %>       
-            </td>
-            <td valign="center" align="right"><%= link_to 'Edit', edit_game_path(game) %><br>
+                        class='aux'>
+                <%= value %>
+              </span>
+            <% end %>
+          </td>
+          <td valign="center" align="right"><%= link_to 'Edit', edit_game_path(game) %><br>
             <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        </table>
-      </li>
-    <% end %>
+        </tr>
+      </table>
+    </li>
+  <% end %>
 </ul>
- 
 <%= link_to 'New Game', new_game_path %>

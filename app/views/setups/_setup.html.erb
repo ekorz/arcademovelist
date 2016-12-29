@@ -1,15 +1,15 @@
 <li id="setup_<%= object.id %>" id='setup_item' data-url="<%= object.tab_id %>">
-<table cellpadding="0" width="100%">
-<tbody>
-<tr>
-<td valign="center" class="handle" align="center" width="15%"><%= link_to "Edit", edit_setup_path(object.id) %> <%= link_to "Delete", setup_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
-<td valign="center" align="left">
-	<h5>Region: <%= object.region %></h5>
-	<h5>Kick Harness: <%= object.kick_harness %></h5>
-	<h5>Jamma: <%= object.jamma %></h5>
-	<h5>Button Layout: <%= object.button_layout %></h5>
-</td>
-</tr>
-</tbody>
-</table>
+  <table cellpadding="0" width="100%">
+    <tbody>
+      <tr>
+        <td valign="center" class="handle" align="center" width="15%"><%= link_to "Edit", edit_setup_path(object.id) %> <%= link_to "Delete", setup_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
+        <td valign="center" align="left">
+          <h5>Region: <%= object.region %></h5>
+          <h5>Kick Harness: <%= object.kick_harness %></h5>
+          <h5>Jamma: <%= object.jamma %></h5>
+          <h5>Button Layout: <%= object.button_layout %></h5>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </li>

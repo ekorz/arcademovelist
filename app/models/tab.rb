@@ -3,7 +3,7 @@ class Tab < ActiveRecord::Base
   belongs_to :tabable, polymorphic: true
 
   has_many :tabs, as: :tabable
-  
+
   has_many :moves, dependent: :destroy
   has_many :characters, dependent: :destroy
   has_many :notes, dependent: :destroy
@@ -17,7 +17,7 @@ class Tab < ActiveRecord::Base
   accepts_nested_attributes_for :builds, :reject_if => lambda { |a| a[:name].blank? }, allow_destroy: true
   accepts_nested_attributes_for :setups, allow_destroy: true
   accepts_nested_attributes_for :notes, :reject_if => lambda { |a| a[:description].blank? }, allow_destroy: true
-  
+
   #has_many :etc, dependent: :destroy
 
   def singular
@@ -34,6 +34,6 @@ class Tab < ActiveRecord::Base
 
   def self.relations
     Tab.reflect_on_all_associations(:has_many).collect{|r| r.name.to_s}
-  end  
+  end
 
 end

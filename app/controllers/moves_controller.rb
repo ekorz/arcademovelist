@@ -15,7 +15,7 @@ class MovesController < ApplicationController
     @moves.each do |move|
       move.position = params['move'].index(move.id.to_s) + 1
       move.save
-      end
+    end
     render :nothing => true
   end
 
@@ -24,7 +24,7 @@ class MovesController < ApplicationController
   end
 
   def show
-    
+
   end
 
 
@@ -33,9 +33,9 @@ class MovesController < ApplicationController
 
   # POST /moves
   # POST /moves.json
-  def create 
-   @move = Move.create(move_params)
-   redirect_to @move.tab.tabable
+  def create
+    @move = Move.create(move_params)
+    redirect_to @move.tab.tabable
   end
 
   # PATCH/PUT /moves/1
@@ -53,7 +53,7 @@ class MovesController < ApplicationController
   end
 
   def destroy
-    
+
     if @move.destroy
       flash[:success] = "Move was deleted."
     else
@@ -64,14 +64,13 @@ class MovesController < ApplicationController
 
   private
 
-    def set_move
-      @move = Move.find(params[:id])
-    end
+  def set_move
+    @move = Move.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def move_params
-      params.require(:move).permit(:tab_id, :name, :description, :position)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def move_params
+    params.require(:move).permit(:tab_id, :name, :description, :position)
+  end
 
 end
-

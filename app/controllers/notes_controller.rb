@@ -18,21 +18,21 @@ class NotesController < ApplicationController
     @notes.each do |note|
       note.position = params['note'].index(note.id.to_s) + 1
       note.save
-      end
+    end
     render :nothing => true
   end
 
   def show
-    
+
   end
 
 
   def edit
   end
 
-  def create 
-   @note = Note.create(note_params)
-   redirect_to @note.tab.tabable
+  def create
+    @note = Note.create(note_params)
+    redirect_to @note.tab.tabable
   end
 
   def update
@@ -48,7 +48,7 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    
+
     if @note.destroy
       flash[:success] = "Note was deleted."
     else
@@ -59,14 +59,13 @@ class NotesController < ApplicationController
 
   private
 
-    def set_note
-      @note = Note.find(params[:id])
-    end
+  def set_note
+    @note = Note.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def note_params
-      params.require(:note).permit(:tab_id, :description, :position)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def note_params
+    params.require(:note).permit(:tab_id, :description, :position)
+  end
 
 end
-

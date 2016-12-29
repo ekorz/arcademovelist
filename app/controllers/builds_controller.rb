@@ -12,16 +12,16 @@ class BuildsController < ApplicationController
 
 
   def show
-    
+
   end
 
 
   def edit
   end
 
-  def create 
-   @build = Build.create(build_params)
-   redirect_to @build.tab
+  def create
+    @build = Build.create(build_params)
+    redirect_to @build.tab
   end
 
   def update
@@ -37,7 +37,7 @@ class BuildsController < ApplicationController
   end
 
   def destroy
-    
+
     if @build.destroy
       flash[:success] = "Note was deleted."
     else
@@ -48,13 +48,13 @@ class BuildsController < ApplicationController
 
   private
 
-    def set_build
-      @build = Build.find(params[:id])
-    end
+  def set_build
+    @build = Build.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def build_params
-      params.require(:build).permit(:tab_id, :name, :position)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def build_params
+    params.require(:build).permit(:tab_id, :name, :position)
+  end
 
 end

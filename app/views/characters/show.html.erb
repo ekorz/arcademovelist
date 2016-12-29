@@ -1,21 +1,19 @@
 <div class="container">
   <h3><%= @character.name %> <%= @character.description %></h3>
   <div id="tabs">
-  <ul class="nav nav-tabs" role="tablist">
-
-  	<% @character.tabs.reverse_each do |tab| %>
-  		<%=	render partial: 'tabs/tab', locals: {tab: tab} %>
-  	<% end %>
-    <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @character.id, tabable_type: @character.class.name}) %></li>
-  </ul>
-  <br>
-  <p></p>
-</div>
+    <ul class="nav nav-tabs" role="tablist">
+      <% @character.tabs.reverse_each do |tab| %>
+        <%= render partial: 'tabs/tab', locals: {tab: tab} %>
+      <% end %>
+      <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @character.id, tabable_type: @character.class.name}) %></li>
+    </ul>
+    <br>
+    <p></p>
+  </div>
 </div>
 <div id="rows" class="tab-content">
   <% @character.tabs.each do |tab| %>
-  		<%=	render partial: 'tabs/tab_body', locals: {tab: tab} %>
-  	<% end %>
+    <%= render partial: 'tabs/tab_body', locals: {tab: tab} %>
+  <% end %>
 </div>
-
 <%= link_to 'Back', @character.tab.tabable %>

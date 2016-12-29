@@ -2,32 +2,29 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $(document).ready(function(){
-    $('#tabs').sortable({
-    axis: 'y',
-    dropOnEmpty: false,
-    handle: '.handle',
-    items: 'li',
-    opacity: 0.4,
-    scroll: true,
-    update: function(){
-    $.ajax({
-    type: 'post',
-    data: $('#tabs').sortable('serialize'),
-    dataType: 'script',
-    complete: function(request){
-    $('#tabs').effect('highlight');
-    },
-    url: '/tabs/sort'})
-    }
-    });
-    });
+    $(document).ready(function(){
+            $('#tabs').sortable({
+              axis: 'y',
+              dropOnEmpty: false,
+              handle: '.handle',
+              items: 'li',
+              opacity: 0.4,
+              scroll: true,
+              update: function(){
+                $.ajax({
+                  type: 'post',
+                  data: $('#tabs').sortable('serialize'),
+                  dataType: 'script',
+                  complete: function(request){
+                    $('#tabs').effect('highlight');
+                  },
+                  url: '/tabs/sort'})
+              }
+            });
+          });
   </script>
 </head>
-
-
-
 <h1>Listing tabs</h1>
 <ul id="tabs"> <% @tabs.each do |tab| %>
-  <li id="tab_<%= tab.id %>"><span class="handle">[drag]</span><%= tab.tab_type %><%= tab.position %></li>
-<% end %></ul>
+    <li id="tab_<%= tab.id %>"><span class="handle">[drag]</span><%= tab.tab_type %><%= tab.position %></li>
+  <% end %></ul>

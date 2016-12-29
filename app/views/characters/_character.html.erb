@@ -1,1 +1,3 @@
-<p><strong><h1><%= link_to object.name, character_path(object.id) %></h1></strong><%= link_to "Edit", edit_character_path(object.id) %> <%= link_to "Delete", character_path(object.id), method: :delete, data: {confirm: "Sure?" } %> </p>
+<p><strong>
+    <h1><%= link_to object.name, character_path(object.id) %></h1>
+  </strong><%= link_to "Edit", edit_character_path(object.id) %> <%= link_to "Delete", character_path(object.id), method: :delete, data: {confirm: "Sure?" } %> </p>

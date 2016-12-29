@@ -1,41 +1,28 @@
 <div class="container">
   <h3><%= @tab.tab_type %></h3>
   <ul class="nav nav-tabs" role="tablist">
-
-  	<% @tab.tabs.each do |tab| %>
-  		<%=	render partial: 'tabs/tab', locals: {tab: tab} %>
-  	<% end %>
+    <% @tab.tabs.each do |tab| %>
+      <%= render partial: 'tabs/tab', locals: {tab: tab} %>
+    <% end %>
     <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @tab.id, tabable_type: @tab.class.name}) %></li>
     <li class="active"><%= link_to '+', new_build_path(build: {tab_id: @tab.id}) %></li>
   </ul>
   <br>
   <p></p>
 </div>
-
 <p>
   <strong>Tabable ID: <%= @tab.tabable_id%></strong><br>
   <strong>Tabable Type: <%= @tab.tabable_type %></strong>
-
   <div>
-
-  <% @tab.builds.each do |build| %>
+    <% @tab.builds.each do |build| %>
       <%= render partial: "builds/build", locals: {build: build} %>
     <% end %>
-
   </div>
-
-
 </p>
-
-  <div id='#rows'>
-
-	<% @tab.send(@tab.plural).each do |object| %>
-  		<%=	render partial: "#{@tab.plural}/#{@tab.singular}", locals: {object: object} %>
-  	<% end %>
-
-  </div>
-
-
+<div id='#rows'>
+  <% @tab.send(@tab.plural).each do |object| %>
+    <%= render partial: "#{@tab.plural}/#{@tab.singular}", locals: {object: object} %>
+  <% end %>
+</div>
 <a href='/<%= @tab.plural %>/new?<%= @tab.singular %>%5Btab_id%5D=<%= @tab.id %>'>New <%= @tab.tab_type.singularize %></a>
-
 <%= link_to 'Back', @tab.tabable %>

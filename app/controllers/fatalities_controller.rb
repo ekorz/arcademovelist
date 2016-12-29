@@ -14,7 +14,7 @@ class FatalitiesController < ApplicationController
     @fatalities.each do |fatality|
       fatality.position = params['fatality'].index(fatality.id.to_s) + 1
       fatality.save
-      end
+    end
     render :nothing => true
   end
 
@@ -23,7 +23,7 @@ class FatalitiesController < ApplicationController
   end
 
   def show
-    
+
   end
 
 
@@ -32,9 +32,9 @@ class FatalitiesController < ApplicationController
 
   # POST /fatalitys
   # POST /fatalitys.json
-  def create 
-   @fatality = Fatality.create(fatality_params)
-   redirect_to @fatality.tab.tabable
+  def create
+    @fatality = Fatality.create(fatality_params)
+    redirect_to @fatality.tab.tabable
   end
 
   # PATCH/PUT /fatalitys/1
@@ -52,7 +52,7 @@ class FatalitiesController < ApplicationController
   end
 
   def destroy
-    
+
     if @fatality.destroy
       flash[:success] = "fatality was deleted."
     else
@@ -63,13 +63,13 @@ class FatalitiesController < ApplicationController
 
   private
 
-    def set_fatality
-      @fatality = Fatality.find(params[:id])
-    end
+  def set_fatality
+    @fatality = Fatality.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def fatality_params
-      params.require(:fatality).permit(:tab_id, :name, :description, :position)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def fatality_params
+    params.require(:fatality).permit(:tab_id, :name, :description, :position)
+  end
 
 end

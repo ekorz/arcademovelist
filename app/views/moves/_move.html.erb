@@ -1,11 +1,13 @@
 <li id="move_<%= object.id %>" id='move_item' data-url="<%= object.tab_id %>">
-<table cellpadding="0" width="100%">
-<tbody>
-<tr>
-<td valign="center" class="handle" align="center" width="15%"><strong><%= object.name %></strong><br><%= link_to "Edit", edit_move_path(object.id) %> <%= link_to "Delete", move_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
-<td valign="center" align="left"><h1><%= object.description %></h1></td>
-</tr>
-</tbody>
-</table>
+  <table cellpadding="0" width="100%">
+    <tbody>
+      <tr>
+        <td valign="center" class="handle" align="center" width="15%"><strong><%= object.name %></strong><br>
+          <%= link_to "Edit", edit_move_path(object.id) %> <%= link_to "Delete", move_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
+        <td valign="center" align="left">
+          <h1><%= object.description %></h1>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </li>
-

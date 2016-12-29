@@ -1,10 +1,11 @@
 <table cellpadding="0" width="100%">
-<tbody>
-<tr>
-<td valign="center" align="center" width="15%"><%= link_to "Edit", edit_build_path(build.id) %> <%= link_to "Delete", build_path(build.id), method: :delete, data: {confirm: "Sure?" } %></td>
-<td valign="center" align="left">
-	<h4>Name: <%= build.name %></h4><br>	
-</td>
-</tr>
-</tbody>
+  <tbody>
+    <tr>
+      <td valign="center" align="center" width="15%"><%= link_to "Edit", edit_build_path(build.id) %> <%= link_to "Delete", build_path(build.id), method: :delete, data: {confirm: "Sure?" } %></td>
+      <td valign="center" align="left">
+        <h4>Name: <%= build.name %></h4>
+        <br>
+      </td>
+    </tr>
+  </tbody>
 </table>
