@@ -1,6 +1,8 @@
 Arcademovelist::Application.routes.draw do
   resources :games
-  resources :characters
+  resources :characters do
+    post :sort, on: :collection
+    end
   resources :moves do 
     post :sort, on: :collection
     end

@@ -13,7 +13,7 @@
   <p></p>
 </div>
 
-<div class="tab-content">
+<div id="rows" class="tab-content">
 
 	<% @game.tabs.each do |tab| %>
   		<%=	render partial: 'tabs/tab_body', locals: {tab: tab} %>

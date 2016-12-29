@@ -1,8 +1,10 @@
+<li id="note_<%= object.id %>" id='note_item' data-url="<%= object.tab_id %>">
 <table cellpadding="0" width="100%">
 <tbody>
 <tr>
-<td valign="center" align="center" width="15%"><%= link_to "Edit", edit_note_path(object.id) %> <%= link_to "Delete", note_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
+<td valign="center" class="handle" align="center" width="15%"><%= link_to "Edit", edit_note_path(object.id) %> <%= link_to "Delete", note_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
 <td valign="center" align="left"><h5><%= object.description %></h5></td>
 </tr>
 </tbody>
 </table>
+</li>

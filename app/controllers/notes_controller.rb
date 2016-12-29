@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-
+  skip_before_action :verify_authenticity_token, only: [:sort]
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,6 +11,15 @@ class NotesController < ApplicationController
   end
 
   def sort
+    param = params[:tab_id]
+
+    @notes = Note.where("tab_id = '#{param}'")
+
+    @notes.each do |note|
+      note.position = params['note'].index(note.id.to_s) + 1
+      note.save
+      end
+    render :nothing => true
   end
 
   def show

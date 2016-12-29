@@ -1,4 +1,5 @@
 class Setup < ActiveRecord::Base
+	acts_as_list
 	belongs_to :tab
 
 	EDIT_FIELDS = [ {column_name: :kick_harness , column_type: 'check_box'},
