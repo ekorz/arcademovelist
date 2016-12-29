@@ -1,5 +1,5 @@
 <div class="container">
-  <h3><%= @character.name %> <%= @character.description %></h3>
+  <h3><%= @character.name %> (<%= @character.description %>)</h3>
   <div id="tabs">
   <ul class="nav nav-tabs" role="tablist">
 
@@ -18,4 +18,4 @@
   	<% end %>
 </div>
 
-<%= link_to 'Back', @character.tab %>
+<%= link_to 'Back', @character.tab.tabable %>

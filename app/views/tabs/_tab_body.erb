@@ -1,5 +1,5 @@
 <div role="tabpanel" class="tab-pane" data-name="<%= tab.plural %>" id="tab-<%= tab.id %>">
-	
+
 	<div>
 	<% if Tab.relations.include?(tab.plural) %>
 
@@ -15,6 +15,6 @@
   	<% end %>	
     </div>
 
-<a href='/<%= tab.plural %>/new?<%= tab.singular %>%5Btab_id%5D=<%= tab.id %>'>New <%= tab.singular_titlecase %></a>
+<%= tab.tab_type%>: <%= link_to 'show', tab_path(tab) %> <%= link_to 'edit/add', edit_tab_path(tab) %> <%= link_to 'delete-all', tab_path(tab), method: :delete, data: {confirm: "...not like this" } %>
 
 </div>
