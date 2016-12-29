@@ -2,7 +2,7 @@
   <h3><%= @game.name %> (<%= @game.developer %>) (<%= @game.year %>) (<%= link_to 'Edit', edit_game_path(@game) %>)</h3>
   <div id="tabs">
     <ul class="nav nav-tabs" role="tablist">
-      <% @game.tabs.reverse_each do |tab| %>
+      <% @game.tabs.each do |tab| %>
         <%= render partial: 'tabs/tab', locals: {tab: tab} %>
       <% end %>
       <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @game.id, tabable_type: @game.class.name}) %></li>
@@ -12,8 +12,10 @@
   <p></p>
 </div>
 <div id="rows" class="tab-content">
+  
   <% @game.tabs.each do |tab| %>
     <%= render partial: 'tabs/tab_body', locals: {tab: tab} %>
   <% end %>
+
 </div>
 <%= link_to 'Back', root_path %>

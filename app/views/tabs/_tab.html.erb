@@ -1,2 +1,2 @@
-<li id="tab_<%= tab.id %>" role="presentation" >
+<li id="tab_<%= tab.id %>" class="<%= 'active' if tab==tab.tabable.tabs.first %>" role="presentation" >
   <%= link_to tab.tab_type, "#tab-#{tab.id}", class: "handle", role: "tab", data: {toggle: "tab"}  %></li>

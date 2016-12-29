@@ -1,3 +1,3 @@
 class Game < ActiveRecord::Base
-  has_many :tabs, as: :tabable, :order => 'position DESC', dependent: :destroy
+  has_many :tabs, as: :tabable, :order => 'position ASC', dependent: :destroy
 end

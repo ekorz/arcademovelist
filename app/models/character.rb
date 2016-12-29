@@ -1,6 +1,6 @@
 class Character < ActiveRecord::Base
   belongs_to :tab
-  has_many :tabs, as: :tabable, :order => 'position DESC', dependent: :destroy
+  has_many :tabs, as: :tabable, :order => 'position ASC', dependent: :destroy
 
   EDIT_FIELDS = [{column_name: :name , column_type: 'text_field'},
                  {column_name: :description , column_type: 'text_field'}]

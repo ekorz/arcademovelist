@@ -2,7 +2,7 @@
   <h3><%= @character.name %> <%= @character.description %></h3>
   <div id="tabs">
     <ul class="nav nav-tabs" role="tablist">
-      <% @character.tabs.reverse_each do |tab| %>
+      <% @character.tabs.each do |tab| %>
         <%= render partial: 'tabs/tab', locals: {tab: tab} %>
       <% end %>
       <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @character.id, tabable_type: @character.class.name}) %></li>
