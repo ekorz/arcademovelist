@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :set_game, only: [:show, :edit, :update, :inline_update, :destroy]
 
   # GET /games
   # GET /games.json
@@ -37,6 +37,14 @@ class GamesController < ApplicationController
     end
   end
 
+  def inline_update
+    
+    @game.send("#{params[:field]}=",params[:value])
+    @game.save
+    render json: {success: true}
+
+  end
+
   # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
@@ -64,7 +72,7 @@ class GamesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_game
-    @game = Game.find(params[:id])
+    @game = Game.find(params[:id]||params[:game_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

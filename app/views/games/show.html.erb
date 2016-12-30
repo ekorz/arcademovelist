@@ -2,17 +2,22 @@
   <div class="container-fluid" id="tabs">
     <ul class="navbar-left">
       <ul class="breadcrumb list-inline">
-        <li id="topnav-bcrumb"><%= link_to 'Games', root_path %></li>
+        <li id="topnav-bcrumb" data-url="<%= url_for root_path %>">Games</li>
         <li id="topnav-bcrumb" class="active"><%= @game.name %></li>
       </ul>
     </ul>
     <ul class="navbar-left">
-      <ul class="nav nav-pills" role="tablist" style="padding: 8px; 15px;">
+      <ul id="my-pills" class="nav nav-pills" role="tablist">
         <% @game.tabs.each do |tab| %>
           <%= render partial: 'tabs/tab', locals: {tab: tab} %>
         <% end %>
         <li><%= link_to '+', new_tab_path(tab: {tabable_id: @game.id, tabable_type: @game.class.name}) %></li>
       </ul>
+    </ul>
+    <ul class="navbar-right">
+      <div id="edit-button" class='row text-center' style="padding-top: 15px;">
+        <a class="btn editBtn">Edit</a>
+      </div>
     </ul>
     </div>
   </nav>

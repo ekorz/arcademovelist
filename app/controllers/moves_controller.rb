@@ -1,9 +1,17 @@
 class MovesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:sort]
-  before_action :set_move, only: [:show, :edit, :update, :destroy]
+  before_action :set_move, only: [:show, :edit, :update, :inline_update, :destroy]
 
   def index
     @moves = Move.order('moves.position ASC')
+  end
+
+  def inline_update
+    
+    @move.send("#{params[:field]}=",params[:value])
+    @move.save
+    render json: {success: true}
+
   end
 
   def sort
@@ -65,7 +73,7 @@ class MovesController < ApplicationController
   private
 
   def set_move
-    @move = Move.find(params[:id])
+    @move = Move.find(params[:id]||params[:move_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

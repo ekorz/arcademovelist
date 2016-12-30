@@ -1,9 +1,17 @@
 class SetupsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:sort]
-  before_action :set_setup, only: [:show, :edit, :update, :destroy]
+  before_action :set_setup, only: [:show, :edit, :update, :inline_update, :destroy]
 
   def index
     @setups = Setup.all
+  end
+
+  def inline_update
+    
+    @setup.send("#{params[:field]}=",params[:value])
+    @setup.save
+    render json: {success: true}
+
   end
 
   def new
@@ -60,7 +68,7 @@ class SetupsController < ApplicationController
   private
 
   def set_setup
-    @setup = Setup.find(params[:id])
+    @setup = Setup.find(params[:id]||params[:setup_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

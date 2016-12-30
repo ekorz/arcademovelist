@@ -1,13 +1,32 @@
-<li id="character_<%= object.id %>" id='character_item' data-url="<%= object.id %>">
-  <table cellpadding="0" width="100%">
-    <tbody>
-      <tr>
-        <td valign="center" class="handle" align="center" width="15%">
-          <%= link_to "Edit", edit_character_path(object.id) %> <%= link_to "Delete", character_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
-        <td valign="center" align="left">
-          <h1><%= link_to object.name, character_path(object.id) %></h1>
+<li id="character_<%= object.id %>" id='character_item'>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <table id="interesting-content" width="100%">
+        <tr>
+          <td valign="center" align="left" width="85%" data-url="<%=url_for object%>" class="">
+            <h1>
+              <input data-submiturl="<%= character_inline_update_path(object, field: :name) %>" type="text" class="editField" value="<%= object.name %>" readonly>
+            </h1>
+          </div>
+        </td>
+        <td>
+          <span></span>
+        </td>
+        <td >
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=object.id%>"></a>
+        </td>
+        <td width="5%">
         </td>
       </tr>
-    </tbody>
-  </table>
+    </table>
+    <div id="collapse<%=object.id%>" class="panel-collapse collapse">
+      <div class="panel-body" data-fields="true">
+        <h4>Description: <input data-submiturl="<%= character_inline_update_path(object, field: :description) %>" type="text" class="editField" value="<%= object.description %>" readonly>
+          </h4>
+          <div id="delete-button" data-url="true" delete-button="true" >
+          <%= link_to '[Destroy]', object, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
+    </div>
+  </div>
+</div>
 </li>

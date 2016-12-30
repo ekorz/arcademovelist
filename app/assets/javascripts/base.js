@@ -106,3 +106,40 @@ $(document).on('click', function() {
         }
     });
 });
+
+
+$(document).ready(function() {
+    $('.editBtn').click(function() {
+        if ($('.editField').is('[readonly]')) { //checks if it is already on readonly mode
+            $('.editField').prop('readonly', false); //turns the readonly off
+            $('.editBtn').html('Editing'); //Changes the text of the button
+            $('.editBtn').css("background", "#2a9fd6"); //changes the background of the button
+            $('.editBtn').css("color", "white"); //changes the border of the button
+            $('[data-url]').addClass("editing");
+        } else { //else we do other things
+            $('.editField').prop('readonly', true);
+            $('.editBtn').html('Edit');
+            $('.editBtn').css("background", "inherit");
+            $('.editBtn').css("color", "#2a9fd6");
+            $('[data-url]').removeClass("editing");
+        }
+    });
+});
+
+$(document).on('click', '[data-url]:not(.editing)', function() {
+    window.location = $(this).data().url;
+})
+
+$(document).on("blur", "[data-submiturl]", function() {
+
+    jQuery.ajax($(this).data().submiturl, {
+        data: {
+            value: $(this).val()
+        },
+        context: this,
+        complete: function(data) {
+            $(this).effect('highlight');
+        },
+    })
+
+})

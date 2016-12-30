@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
 
-  before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_character, only: [:show, :edit, :inline_update, :update, :destroy]
 
   def index
     @characters = Character.order('characters.name ASC')
@@ -8,6 +8,14 @@ class CharactersController < ApplicationController
 
   def new
     @character = Character.new(character_params)
+  end
+
+  def inline_update
+    
+    @character.send("#{params[:field]}=",params[:value])
+    @character.save
+    render json: {success: true}
+
   end
 
   def show
@@ -46,7 +54,7 @@ class CharactersController < ApplicationController
   private
 
   def set_character
-    @character = Character.find(params[:id])
+    @character = Character.find(params[:id]||params[:character_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

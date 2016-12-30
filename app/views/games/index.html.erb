@@ -1,21 +1,30 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 65px;" >
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid" id="tabs">
     <ul class="navbar-left">
       <ul class="breadcrumb list-inline">
-        <li id="topnav-bcrumb"><%= link_to 'Games', root_path %></li>
+        <li id="topnav-bcrumb" class="active">Games</li>
         <li id="topnav-bcrumb">
-          <input id="search_field" name="search_field" placeholder="Search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'" >
+          <small>
+            <input id="search_field" name="search_field" placeholder="Search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'" >
+          </small>
         </li>
       </ul>
     </ul>
-    
-    </div>
-  </nav>
-<div>
-<ul>
-  <% @games.each do |game| %>
-    <%= render partial: 'game', locals: {game: game}  %>
-  <% end %>
-</ul>
-<div>
+    <ul class="navbar-right">
+      <div id="edit-button" class='row text-center' style="padding-top: 15px;">
+        <a class="btn editBtn">Edit</a>
+      </div>
+    </ul>
+  </div>
+</nav>
+<form role="form">
+  
+  
+      <ul>
+        <% @games.each do |game| %>
+          <%= render partial: 'game', locals: {game: game}  %>
+        <% end %>
+     </ul>
+ 
 
+</form>

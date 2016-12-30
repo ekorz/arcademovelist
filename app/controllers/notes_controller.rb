@@ -1,9 +1,17 @@
 class NotesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:sort]
-  before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_note, only: [:show, :edit, :update, :inline_update, :destroy]
 
   def index
     @notes = Note.all
+  end
+
+  def inline_update
+    
+    @note.send("#{params[:field]}=",params[:value])
+    @note.save
+    render json: {success: true}
+
   end
 
   def new
@@ -60,7 +68,7 @@ class NotesController < ApplicationController
   private
 
   def set_note
-    @note = Note.find(params[:id])
+    @note = Note.find(params[:id]||params[:note_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

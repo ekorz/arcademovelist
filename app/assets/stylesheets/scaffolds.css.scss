@@ -8,10 +8,15 @@ dir {
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     -webkit-padding-start: 40px;
+    -webkit-padding-end: 40px;
 }
 
 .nav-pills>li>a {
     background-color: #333;
+}
+
+#my-pills {
+    padding-top: .4em;
 }
 
 .breadcrumb {
@@ -36,7 +41,12 @@ table a:not(.btn),
 }
 
 #topnav-bcrumb {
-    font-size: 1.75em;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+#topnav-bcrumb:hover {
+    color: #2a9fd6;
 }
 
 #topnav-bcrumb.active {
@@ -52,15 +62,104 @@ table a:not(.btn),
 
 @media (min-width: 768px) {
     body {
-        padding-top: 80px;
-        padding-bottom: 40px;
+        padding-top: 5em;
+        padding-bottom: 2em;
     }
     .navbar-left {
-        padding-top: 5px;
+        padding-top: .8em;
     }
 }
 
-#interesting-content {
-    margin-top: 2px;
-    margin-bottom: 2px
+[data-url]:not(.editing) h1:hover {
+    color: #2a9fd6;
+}
+
+[data-url] h1 {
+    padding-left: 10px;
+}
+
+[data-url] input {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
+[data-fields] input {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
+h4 {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
+.input-group {
+    width: 100%;
+}
+
+#delete-button:not(.editing) {
+    display: none;
+}
+
+.panel-heading [data-toggle="collapse"]:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e072";
+    float: right;
+    color: #b0c5d8;
+    font-size: 18px;
+    line-height: 22px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.panel-heading [data-toggle="collapse"].collapsed:after {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.container-fluid {
+    height: 5em;
+}
+
+nav {
+    height: 4.65em;
+    margin-bottom: 0px !important;
+}
+
+.panel {
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+}
+
+.panel-group {
+    background-color: inherit !important;
+}
+
+.panel-default>.panel-heading {
+    background-color: inherit !important;
+}
+
+.panel-heading {
+    padding-top: 1px !important;
+    padding-right: 1px !important;
+    padding-bottom: 1px !important;
+    padding-left: 1px !important;
+}
+
+.panel-heading [data-toggle="collapse"]:after {
+    color: #2a9fd6;
+}
+
+#edit-button a {
+    border: 2px solid #2a9fd6;
+    text-decoration: none;
 }

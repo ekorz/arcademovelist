@@ -1,19 +1,24 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 65px;" >
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 5em;" >
   <div class="container-fluid" id="tabs">
     <ul class="navbar-left">
       <ul class="breadcrumb list-inline">
-        <li id="topnav-bcrumb"><%= link_to 'Games', root_path %></li>
-        <li id="topnav-bcrumb"><%= link_to @character.tab.tabable.name, @character.tab.tabable %></li>
+        <li id="topnav-bcrumb" data-url="<%= url_for root_path %>">Games</li>
+        <li id="topnav-bcrumb" data-url="<%= url_for @character.tab.tabable %>"><%= @character.tab.tabable.name %></li>
         <li id="topnav-bcrumb" class="active"><%= @character.name %></li>
       </ul>
     </ul>
     <ul class="navbar-left">
-      <ul class="nav nav-pills" role="tablist" style="padding: 8px; 15px;">
+      <ul id="my-pills" class="nav nav-pills" role="tablist" >
         <% @character.tabs.each do |tab| %>
           <%= render partial: 'tabs/tab', locals: {tab: tab} %>
         <% end %>
         <li><%= link_to '+', new_tab_path(tab: {tabable_id: @character.id, tabable_type: @character.class.name}) %></li>
       </ul>
+    </ul>
+    <ul class="navbar-right">
+      <div id="edit-button" class='row text-center' style="padding-top: 15px;">
+        <a class="btn editBtn">Edit</a>
+      </div>
     </ul>
     </div>
   </nav>

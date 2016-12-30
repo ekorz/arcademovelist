@@ -1,9 +1,17 @@
 class FatalitiesController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:sort]
-  before_action :set_fatality, only: [:show, :edit, :update, :destroy]
+  before_action :set_fatality, only: [:show, :edit, :inline_update, :update, :destroy]
 
   def index
     @fatalitys = Fatality.all
+  end
+
+  def inline_update
+    
+    @fatality.send("#{params[:field]}=",params[:value])
+    @fatality.save
+    render json: {success: true}
+
   end
 
   def sort
@@ -64,7 +72,7 @@ class FatalitiesController < ApplicationController
   private
 
   def set_fatality
-    @fatality = Fatality.find(params[:id])
+    @fatality = Fatality.find(params[:id]||params[:character_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
