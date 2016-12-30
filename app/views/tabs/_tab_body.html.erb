@@ -14,5 +14,5 @@
       <% end %>
     </ul>
   </div>
-  <%= tab.tab_type%>: <%= link_to 'show', tab_path(tab) %> <%= link_to 'edit/add', edit_tab_path(tab) %> <%= link_to 'delete-all', tab_path(tab), method: :delete, data: {confirm: "...not like this" } %>
+  <%= tab.tab_type%>: <%= link_to 'edit/add', edit_tab_path(tab) %> <%= link_to 'delete-all', tab_path(tab), method: :delete, data: {confirm: "...not like this" } %>
 </div>

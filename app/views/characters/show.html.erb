@@ -1,19 +1,24 @@
-<div class="container">
-  <h3><%= @character.name %> <%= @character.description %></h3>
-  <div id="tabs">
-    <ul class="nav nav-tabs" role="tablist">
-      <% @character.tabs.each do |tab| %>
-        <%= render partial: 'tabs/tab', locals: {tab: tab} %>
-      <% end %>
-      <li class="active"><%= link_to '+', new_tab_path(tab: {tabable_id: @character.id, tabable_type: @character.class.name}) %></li>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 65px;" >
+  <div class="container-fluid" id="tabs">
+    <ul class="navbar-left">
+      <ul class="breadcrumb list-inline">
+        <li id="topnav-bcrumb"><%= link_to 'Games', root_path %></li>
+        <li id="topnav-bcrumb"><%= link_to @character.tab.tabable.name, @character.tab.tabable %></li>
+        <li id="topnav-bcrumb" class="active"><%= @character.name %></li>
+      </ul>
     </ul>
-    <br>
-    <p></p>
+    <ul class="navbar-left">
+      <ul class="nav nav-pills" role="tablist" style="padding: 8px; 15px;">
+        <% @character.tabs.each do |tab| %>
+          <%= render partial: 'tabs/tab', locals: {tab: tab} %>
+        <% end %>
+        <li><%= link_to '+', new_tab_path(tab: {tabable_id: @character.id, tabable_type: @character.class.name}) %></li>
+      </ul>
+    </ul>
+    </div>
+  </nav>
+  <div id="rows" class="tab-content">
+    <% @character.tabs.each do |tab| %>
+      <%= render partial: 'tabs/tab_body', locals: {tab: tab} %>
+    <% end %>
   </div>
-</div>
-<div id="rows" class="tab-content">
-  <% @character.tabs.each do |tab| %>
-    <%= render partial: 'tabs/tab_body', locals: {tab: tab} %>
-  <% end %>
-</div>
-<%= link_to 'Back', @character.tab.tabable %>

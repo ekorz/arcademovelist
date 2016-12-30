@@ -1,34 +1,21 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 65px;" >
+  <div class="container-fluid" id="tabs">
+    <ul class="navbar-left">
+      <ul class="breadcrumb list-inline">
+        <li id="topnav-bcrumb"><%= link_to 'Games', root_path %></li>
+        <li id="topnav-bcrumb">
+          <input id="search_field" name="search_field" placeholder="Search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'" >
+        </li>
+      </ul>
+    </ul>
+    
+    </div>
+  </nav>
 <div>
-  <%= text_field_tag 'search_field' %>
-</div>
 <ul>
   <% @games.each do |game| %>
-    <li <% game.attributes.each_pair do |name, value| %> 
-        data-<%= name.downcase %>='<%= value.try(:downcase) %>' 
-        <% end %> >
-      <table width="100%">
-        <tr>
-          <td valign="center" align="left" width="85%">
-            <h1>
-              <%= link_to game do %>
-                <%= game.name %>
-              <% end %>
-            </h1>
-          </td>
-          <td>
-            <% game.attributes.each_pair do |name, value| %>
-              <span style='display:none' 
-                        data-aux='<%= value.try(:downcase) %>' 
-                        class='aux'>
-                <%= value %>
-              </span>
-            <% end %>
-          </td>
-          <td valign="center" align="right"><%= link_to 'Edit', edit_game_path(game) %><br>
-            <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      </table>
-    </li>
+    <%= render partial: 'game', locals: {game: game}  %>
   <% end %>
 </ul>
-<%= link_to 'New Game', new_game_path %>
+<div>
+

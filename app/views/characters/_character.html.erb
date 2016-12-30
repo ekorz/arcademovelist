@@ -1,3 +1,13 @@
-<p><strong>
-    <h1><%= link_to object.name, character_path(object.id) %></h1>
-  </strong><%= link_to "Edit", edit_character_path(object.id) %> <%= link_to "Delete", character_path(object.id), method: :delete, data: {confirm: "Sure?" } %> </p>
+<li id="character_<%= object.id %>" id='character_item' data-url="<%= object.id %>">
+  <table cellpadding="0" width="100%">
+    <tbody>
+      <tr>
+        <td valign="center" class="handle" align="center" width="15%">
+          <%= link_to "Edit", edit_character_path(object.id) %> <%= link_to "Delete", character_path(object.id), method: :delete, data: {confirm: "Sure?" } %></td>
+        <td valign="center" align="left">
+          <h1><%= link_to object.name, character_path(object.id) %></h1>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</li>
