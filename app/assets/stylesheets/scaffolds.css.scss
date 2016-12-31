@@ -81,19 +81,29 @@ table a:not(.btn),
     padding-left: 10px;
 }
 
+#new-game h1 {
+    padding-left: 10px;
+}
+
 [data-url] input {
     background-color: inherit;
     color: inherit;
     border: none;
 }
 
-[data-fields] input {
+#new-game input {
     background-color: inherit;
     color: inherit;
     border: none;
 }
 
 h4 {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
+h4 input {
     background-color: inherit;
     color: inherit;
     border: none;
@@ -167,7 +177,35 @@ nav {
     text-decoration: none;
 }
 
+#edit-button a:visited {
+    border: 2px solid #2a9fd6;
+    text-decoration: none;
+    color: #2a9fd6;
+}
+
+#delete-button a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+#edit-button a:hover {
+    color: white;
+}
+
+#edit-button .active {
+    color: white;
+    background-color: #2a9fd6;
+}
+
 #edit-button {
     padding-top: 15px;
     padding-right: 30px;
+}
+
+#existing-data-fields.adding {
+    display: none;
+}
+
+#new-data-fields:not(.adding) {
+    display: none;
 }

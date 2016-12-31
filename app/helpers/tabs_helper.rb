@@ -19,13 +19,13 @@ module TabsHelper
   def add_child_button(name, association,target)
     content_tag(:spam,"<span>#{name}</span>".html_safe,
     :class => "add_child",
-      :style => "cursor:pointer; border:1px solid #777;",
+      :style => "cursor:pointer; border:1px solid #2a9fd6;",
       :"data-association" => association,
       :target => target)
   end
   def remove_child_button(name)
     content_tag(:div,"<span>Remove</span>".html_safe,
-                :style => "cursor:pointer; border:1px solid #777; display:inline-block; width: 60px;",
+                :style => "cursor:pointer; border:1px solid #2a9fd6; display:inline-block;",
                 :class => "remove_child")
   end
 end

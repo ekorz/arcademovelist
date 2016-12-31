@@ -33,9 +33,10 @@
           Genre: <input data-submiturl="<%= game_inline_update_path(game, field: :genre) %>" type="text" class="editField" value="<%= game.genre %>" readonly><br>
           Platform: <input data-submiturl="<%= game_inline_update_path(game, field: :platform) %>" type="text" class="editField" value="<%= game.platform %>" readonly><br>
           Developer: <input data-submiturl="<%= game_inline_update_path(game, field: :developer) %>" type="text" class="editField" value="<%= game.developer %>" readonly>
-          </h4>
-          <div id="delete-button" data-url="true" delete-button="true" >
-          <%= link_to '[Destroy]', game, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </h4>
+        <div id="delete-button" data-url="true" delete-button="true" >
+          <%= link_to 'Destroy', game, method: :delete, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
+        </div>
       </div>
     </div>
   </div>

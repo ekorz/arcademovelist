@@ -1,8 +1,22 @@
-<%= f.hidden_field :_destroy, :class => 'removable' %>
-<% if f.object != nil %>
-  <% f.object.class::EDIT_FIELDS.each do |field_hash| %>
-    <%= f.label field_hash[:column_name] %>
-    <%= f.send(field_hash[:column_type], field_hash[:column_name]) %>
-  <% end %>
-<% end %>
-<%= remove_child_button "Remove"%>
+<li>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <table id="interesting-content" width="100%">
+        <tr>
+          <td valign="center" align="left" width="85%" data-url="" class="">
+            <h5>
+              <%= f.hidden_field :_destroy, :class => 'removable' %>
+              <% if f.object != nil %>
+                <% f.object.class::EDIT_FIELDS.each do |field_hash| %>
+                  <%= f.label field_hash[:column_name] %>
+                  <%= f.send(field_hash[:column_type], field_hash[:column_name]) %>
+                <% end %>
+              <% end %>
+              <%= remove_child_button "Remove"%>
+            </h5>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</li>

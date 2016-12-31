@@ -1,6 +1,24 @@
-<h1>Edit Tab</h1>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="height: 65px;" >
+  <div class="container-fluid" id="tabs">
+    <ul class="navbar-left">
+      <ul class="breadcrumb list-inline">
+        <li id="topnav-bcrumb" data-url="<%= url_for root_path %>">Games</li>
+        <li id="topnav-bcrumb" class="active"><%= @tab.tabable.name %></li>
+      </ul>
+    </ul>
+    <ul class="navbar-left">
+      <ul id="my-pills" class="nav nav-pills" role="tablist">
+        <%= render partial: 'tabs/tab', locals: {tab: @tab} %>
+        </ul>
+    </ul>
+    <ul class="navbar-right">
+      <div id="edit-button" class='row text-center'>
+        <a class="btn editBtn">Edit</a>
+      </div>
+    </ul>
+    </div>
+  </nav>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @tab %>
 <%= link_to 'Back', @tab.tabable %>

@@ -12,19 +12,23 @@
     </ul>
     <ul class="navbar-right">
       <div id="edit-button" class='row text-center'>
+        <a class="btn newBtn" >New</a>
         <a class="btn editBtn">Edit</a>
       </div>
     </ul>
   </div>
 </nav>
-<form role="form">
-  
-  
-      <ul>
-        <% @games.each do |game| %>
-          <%= render partial: 'game', locals: {game: game}  %>
-        <% end %>
-     </ul>
- 
-
+<div id="existing-data-fields" class="">
+  <form role="form">
+    <ul>
+      <% @games.each do |game| %>
+        <%= render partial: 'game', locals: {game: game}  %>
+      <% end %>
+    </div>
+  </ul>
 </form>
+<div id="new-data-fields" class="" readonly>
+  <ul>
+    <%= render partial: 'form' %> 
+  </ul>
+</div>
