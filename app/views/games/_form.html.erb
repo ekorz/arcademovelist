@@ -1,41 +1,39 @@
 <%= form_for @game do |f| %>
-  <ul>
-    <li id="new-game" >
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <table id="interesting-content" width="100%">
-            <tr>
-              <td valign="center" align="left" width="85%">
-                <h1>
-                  <%= f.text_field :name, placeholder: 'Game name', required: true %>
-                </h1>
-              </div>
-            </td>
-            <td>
-            </td>
-            <td >
-              <div class="btn">
-                <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-                  <i class="icon-ok icon-white"></i> Save
+  <li id="new-game" >
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <table id="interesting-content" width="100%">
+          <tr>
+            <td valign="center" align="left" width="85%">
+              <h1>
+                <%= f.text_field :name, placeholder: 'Game name', required: true %>
+              </h1>
+            </div>
+          </td>
+          <td>
+          </td>
+          <td >
+            <div class="btn">
+              <%= button_tag(type: 'submit', class: "btn btn-primary", id:"save-button") do %>
+                Save
                 <% end %>
-              </div>
-            </td>
-            <td width="5%">
-            </td>
-          </tr>
-        </table>
-        <div id="collapse_new" class="panel-collapse">
-          <div class="panel-body">
-            <h4>
-              Developer: <%= f.text_field :developer, placeholder: 'Taito' %><br>
-              Platform: <%= f.text_field :platform, placeholder: 'G-Net' %><br>
-              Genre: <%= f.text_field :genre, placeholder: 'Shooter' %><br>
-              Description: <%= f.text_field :description, placeholder: '1p bullet-hell' %><br>
-              Year: <%= f.text_field :year, placeholder: '1998' %><br>
-            </h4>
-          </div>
+            </div>
+          </td>
+          <td width="5%">
+          </td>
+        </tr>
+      </table>
+      <div id="collapse_new" class="panel-collapse">
+        <div class="panel-body">
+          <h4>
+            Developer: <%= f.text_field :developer, placeholder: 'Taito' %><br>
+            Platform: <%= f.text_field :platform, placeholder: 'G-Net' %><br>
+            Genre: <%= f.text_field :genre, placeholder: 'Shooter' %><br>
+            Description: <%= f.text_field :description, placeholder: '1p bullet-hell' %><br>
+            Year: <%= f.text_field :year, placeholder: '1998' %><br>
+          </h4>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
+  </li>
 <% end %>

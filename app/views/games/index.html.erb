@@ -24,11 +24,13 @@
       <% @games.each do |game| %>
         <%= render partial: 'game', locals: {game: game}  %>
       <% end %>
-    </div>
-  </ul>
-</form>
+    </ul>
+  </form>
+</div>
 <div id="new-data-fields" class="" readonly>
-  <ul>
-    <%= render partial: 'form' %> 
-  </ul>
+  <form role="form">
+    <ul>
+      <%= render partial: 'form' %>
+    </ul>
+  </form>
 </div>
