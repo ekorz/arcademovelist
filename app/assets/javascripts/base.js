@@ -128,18 +128,18 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $('.newBtn').click(function() {
-        if ($('#new-data-fields').hasClass("adding")) {
+        if ($("div[id^='new-data-fields']").hasClass("adding")) {
             $('.newBtn').html('New');
             $('.newBtn').css("background", "inherit");
             $('.newBtn').css("color", "#2a9fd6");
-            $('#new-data-fields').removeClass("adding");
-            $('#existing-data-fields').removeClass("adding");
+            $("div[id^='new-data-fields']").removeClass("adding");
+            $("div[id^='existing-data-fields']").removeClass("adding");
         } else { //else we do other things
             $('.newBtn').html('Adding'); //Changes the text of the button
             $('.newBtn').css("background", "#2a9fd6"); //changes the background of the button
             $('.newBtn').css("color", "white"); //changes the border of the button
-            $('#new-data-fields').addClass("adding");
-            $('#existing-data-fields').addClass("adding");
+            $("div[id^='new-data-fields']").addClass("adding");
+            $("div[id^='existing-data-fields']").addClass("adding");
 
         }
     });

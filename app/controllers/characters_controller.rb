@@ -4,6 +4,7 @@ class CharactersController < ApplicationController
 
   def index
     @characters = Character.order('characters.name ASC')
+    @character = Character.new
   end
 
   def new

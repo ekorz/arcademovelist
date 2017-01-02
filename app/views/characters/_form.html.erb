@@ -1,7 +1,7 @@
 <%= form_for @character do |f| %>
-  <%= f.hidden_field :tab_id %>
+  <%= f.hidden_field :tab_id, value: object.id  %>
   <%= f.text_field :name, placeholder: 'Name' %><br>
   <%= f.text_field :description, placeholder: 'Description' %><br>
   <%= f.number_field :position %><br>
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit" %> <!-- ok so this submits to /games/show I think. wrong. but otherwise working, and I think the other style form has a data target set, so that is the next step -->
 <% end %>

@@ -18,19 +18,19 @@
     </ul>
   </div>
 </nav>
+<div id="new-data-fields" class="" readonly>
+  <form role="form">
+    <ul>
+      <%= render partial: 'form' %>
+    </ul>
+  </form>
+</div>
 <div id="existing-data-fields" class="">
   <form role="form">
     <ul>
       <% @games.each do |game| %>
         <%= render partial: 'game', locals: {game: game}  %>
       <% end %>
-    </ul>
-  </form>
-</div>
-<div id="new-data-fields" class="" readonly>
-  <form role="form">
-    <ul>
-      <%= render partial: 'form' %>
     </ul>
   </form>
 </div>

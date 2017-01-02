@@ -6,11 +6,15 @@ class GamesController < ApplicationController
   def index
     @games = Game.order('games.name ASC')
     @game = Game.new
-  end
+   end
 
   # GET /games/1
   # GET /games/1.json
   def show
+    @character = Character.new
+    @setup = Setup.new
+    @tab = Tab.new
+    @note = Note.new
   end
 
   # GET /games/new

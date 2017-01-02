@@ -6,6 +6,11 @@ class TabsController < ApplicationController
 
   def index
     @tabs = Tab.order('tabs.position ASC')
+    @game = Game.new
+    @character = Character.new
+    @setup = Setup.new
+    @tab = Tab.new
+    @note = Note.new
   end
 
   def sort

@@ -16,13 +16,14 @@
     </ul>
     <ul class="navbar-right">
       <div id="edit-button" class='row text-center'>
+        <a class="btn newBtn" >New</a>
         <a class="btn editBtn">Edit</a>
       </div>
     </ul>
-    </div>
-  </nav>
-<div id="rows" class="tab-content">
-  <% @game.tabs.each do |tab| %>
-    <%= render partial: 'tabs/tab_body', locals: {tab: tab} %>
-  <% end %>
-</div>
+  </div>
+</nav>
+  <div id="rows" class="tab-content">
+    <% @game.tabs.each do |tab| %>
+      <%= render partial: 'tabs/tab_body', locals: {tab: tab} %>
+    <% end %>
+  </div>

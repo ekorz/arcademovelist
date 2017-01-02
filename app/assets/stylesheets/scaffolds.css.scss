@@ -119,6 +119,13 @@ h4 input {
 
 #save-button {}
 
+#search_field {
+    background-color: inherit;
+    border: 1px solid #333;
+    color: white;
+    padding-left: 8px;
+}
+
 .panel-heading [data-toggle="collapse"]:after {
     font-family: 'Glyphicons Halflings';
     content: "\e072";
@@ -204,10 +211,15 @@ nav {
     padding-right: 30px;
 }
 
-#existing-data-fields.adding {
+div[id^=existing-data-fields].adding {
     display: none;
 }
 
-#new-data-fields:not(.adding) {
+div[id^=new-data-fields]:not(.adding) {
     display: none;
+}
+
+::-webkit-input-placeholder {
+    color: gray;
+    font-style: italic;
 }
