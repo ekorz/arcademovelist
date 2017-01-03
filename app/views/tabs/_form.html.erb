@@ -1,3 +1,4 @@
+<% @tab = tab %>
 <%= form_for @tab do |f| %>
   <%= f.hidden_field :tabable_id %>
   <%= f.hidden_field :tabable_type %>
@@ -14,7 +15,7 @@
       <%= f.fields_for @tab.plural.to_sym do |b| %>
         <div>
          
-            <%= render "child_fields", f: b %>
+            <%= render "tabs/child_fields", f: b %>
           
         </div>
       <% end %>

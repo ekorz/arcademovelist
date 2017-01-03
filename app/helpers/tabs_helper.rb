@@ -1,7 +1,7 @@
 module TabsHelper
   def new_fields_template(f,association,options={})
     options[:object] ||= f.object.class.reflect_on_association(association).klass.new
-    options[:partial] ||= "child_fields"
+    options[:partial] ||= "/tabs/child_fields"
     options[:template] ||= "children_fields"
     options[:f] ||= :f
 

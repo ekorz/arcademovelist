@@ -1,5 +1,5 @@
-<%= form_for @game do |f| %>
-  <li id="new-game" >
+<%= form_for(@game, method: :post, url: games_path)  do |f| %>
+  <li id="new-data-fields" >
     <div class="panel panel-default">
       <div class="panel-heading">
         <table id="interesting-content" width="100%">

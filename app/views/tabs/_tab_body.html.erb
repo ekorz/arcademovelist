@@ -16,7 +16,7 @@
   </div>
   <div id="new-data-fields_<%= tab.id %>" class="" readonly>
     <ul>
-      <%= render partial: "#{tab.plural}/form", locals: {object: tab} %>
+      <%= render partial: "tabs/form", locals: {tab: tab} %>
     </ul>
   </div>
 </div>
