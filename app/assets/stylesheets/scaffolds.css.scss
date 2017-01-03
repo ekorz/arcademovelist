@@ -81,17 +81,17 @@ table a:not(.btn),
     padding-left: 10px;
 }
 
-#new-game h1 {
-    padding-left: 10px;
-}
-
 [data-url] input {
     background-color: inherit;
     color: inherit;
     border: none;
 }
 
-#new-game input {
+[id^=new-object-form] h1 {
+    padding-left: 10px;
+}
+
+[id^=new-object-form] input {
     background-color: inherit;
     color: inherit;
     border: none;
@@ -193,6 +193,11 @@ nav {
 }
 
 #delete-button a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+#delete-button a {
     text-decoration: none;
     color: white;
 }

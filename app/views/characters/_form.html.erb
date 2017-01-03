@@ -1,7 +1,42 @@
 <%= form_for(@character, method: :post, url: characters_path) do |f| %>
   <%= f.hidden_field :tab_id, value: object.id  %>
-  <%= f.text_field :name, placeholder: 'Name' %><br>
-  <%= f.text_field :description, placeholder: 'Description' %><br>
-  <%= f.number_field :position %><br>
-  <%= f.submit "Submit" %> 
+  <%= f.hidden_field :position %><br>
+  <li id="new-object-form_<%=object.id%>" >
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <table id="interesting-content" width="100%">
+          <tr>
+            <td valign="center" align="left" width="85%">
+              <h1>
+              <%= f.text_field :name, placeholder: 'Name' %>
+            </h1>
+          </div>
+        </td>
+        <td>
+          <span></span>
+        </td>
+        <td >
+         <div class="btn">
+              <%= button_tag(type: 'submit', class: "btn btn-primary", id:"save-button") do %>
+                Save
+                <% end %>
+            </div>
+        </td>
+        <td width="5%">
+        </td>
+      </tr>
+    </table>
+    <div id="collapse<%=object.id%>" class="panel-collapse">
+      <div class="panel-body" data-fields="true">
+        <h4>
+        	<%= f.text_field :description, placeholder: 'Description' %>
+        </h4>
+        <div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
 <% end %>

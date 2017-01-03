@@ -23,7 +23,7 @@
       <div class="panel-body" data-fields="true">
         <h4>Description: <input data-submiturl="<%= character_inline_update_path(object, field: :description) %>" type="text" class="editField" value="<%= object.description %>" readonly>
         </h4>
-        <div id="delete-button" data-url="true" delete-button="true" >
+        <div id="delete-button" data-url="true">
           <%= link_to 'Destroy', object, method: :delete, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
