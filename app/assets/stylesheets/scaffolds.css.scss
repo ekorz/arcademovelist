@@ -87,11 +87,11 @@ table a:not(.btn),
     border: none;
 }
 
-[id^=new-object-form] h1 {
+[id^=new-data-fields] h1 {
     padding-left: 10px;
 }
 
-[id^=new-object-form] input {
+[id^=new-data-fields] input {
     background-color: inherit;
     color: inherit;
     border: none;
@@ -104,6 +104,18 @@ h4 {
 }
 
 h4 input {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
+h5 {
+    background-color: inherit;
+    color: inherit;
+    border: none;
+}
+
+h5 input {
     background-color: inherit;
     color: inherit;
     border: none;
