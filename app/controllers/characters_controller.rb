@@ -19,6 +19,10 @@ class CharactersController < ApplicationController
   end
 
   def show
+    
+    @setup = Setup.new
+    @tab = Tab.new
+    @note = Note.new
   end
 
   def edit
